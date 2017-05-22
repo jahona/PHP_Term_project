@@ -3,21 +3,14 @@
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head> 
+<head>
 <meta charset="euc-kr">
 <link href="../css/common.css" rel="stylesheet" type="text/css" media="all">
 <link href="../css/member.css" rel="stylesheet" type="text/css" media="all">
 <script>
-   function check_id()
-   {
-     window.open("check_id.php?id=" + document.member_form.id.value,
-         "IDcheck",
-          "left=200,top=200,width=250,height=100,scrollbars=no,resizable=yes");
-   }
-
    function check_nick()
    {
-     window.open("check_nick.php?nick=" + document.member_form.nick.value,
+     window.open("/member/check_nick.php?nick=" + document.member_form.nick.value,
          "NICKcheck",
           "left=200,top=200,width=250,height=100,scrollbars=no,resizable=yes");
    }
@@ -26,43 +19,43 @@
    {
       if (!document.member_form.pass.value)
       {
-          alert("비밀번호를 입력하세요");    
+          alert("占쏙옙占싻뱄옙호占쏙옙 占쌉뤄옙占싹쇽옙占쏙옙");
           document.member_form.pass.focus();
           return;
       }
 
       if (!document.member_form.pass_confirm.value)
       {
-          alert("비밀번호확인을 입력하세요");    
+          alert("占쏙옙占싻뱄옙호확占쏙옙占쏙옙 占쌉뤄옙占싹쇽옙占쏙옙");
           document.member_form.pass_confirm.focus();
           return;
       }
 
       if (!document.member_form.name.value)
       {
-          alert("이름을 입력하세요");    
+          alert("占싱몌옙占쏙옙 占쌉뤄옙占싹쇽옙占쏙옙");
           document.member_form.name.focus();
           return;
       }
 
       if (!document.member_form.nick.value)
       {
-          alert("닉네임을 입력하세요");    
+          alert("占싻놂옙占쏙옙占쏙옙 占쌉뤄옙占싹쇽옙占쏙옙");
           document.member_form.nick.focus();
           return;
       }
 
       if (!document.member_form.hp2.value || !document.member_form.hp3.value )
       {
-          alert("휴대폰 번호를 입력하세요");    
+          alert("占쌨댐옙占쏙옙 占쏙옙호占쏙옙 占쌉뤄옙占싹쇽옙占쏙옙");
           document.member_form.nick.focus();
           return;
       }
 
-      if (document.member_form.pass.value != 
+      if (document.member_form.pass.value !=
             document.member_form.pass_confirm.value)
       {
-          alert("비밀번호가 일치하지 않습니다.\n다시 입력해주세요.");    
+          alert("占쏙옙占싻뱄옙호占쏙옙 占쏙옙치占쏙옙占쏙옙 占십쏙옙占싹댐옙.\n占쌕쏙옙 占쌉뤄옙占쏙옙占쌍쇽옙占쏙옙.");
           document.member_form.pass.focus();
           document.member_form.pass.select();
           return;
@@ -83,7 +76,7 @@
       document.member_form.hp3.value = "";
       document.member_form.email1.value = "";
       document.member_form.email2.value = "";
-	  
+
       document.member_form.id.focus();
 
       return;
@@ -117,8 +110,8 @@
 
   <div id="menu">
 	<? include "../lib/top_menu2.php"; ?>
-  </div>  <!-- end of menu --> 
-  
+  </div>  <!-- end of menu -->
+
   <div id="content">
 	<div id="col1">
 		<div id="left_menu">
@@ -129,7 +122,7 @@
 	</div> <!-- end of col1 -->
 
 	<div id="col2">
-        <form  name="member_form" method="post" action="modify.php"> 
+        <form  name="member_form" method="post" action="modify.php">
 		<div id="title">
 			<img src="../img/title_member_modify.gif">
 		</div>
@@ -138,13 +131,13 @@
 		<div id="form_join">
 			<div id="join1">
 			<ul>
-			<li>* 아이디</li>
-			<li>* 비밀번호</li>
-			<li>* 비밀번호 확인</li>
-			<li>* 이름</li>
-			<li>* 닉네임</li>
-			<li>* 휴대폰</li>
-			<li>&nbsp;&nbsp;&nbsp;이메일</li>
+			<li>* 占쏙옙占싱듸옙</li>
+			<li>* 占쏙옙占싻뱄옙호</li>
+			<li>* 占쏙옙占싻뱄옙호 확占쏙옙</li>
+			<li>* 占싱몌옙</li>
+			<li>* 占싻놂옙占쏙옙</li>
+			<li>* 占쌨댐옙占쏙옙</li>
+			<li>&nbsp;&nbsp;&nbsp;占싱몌옙占쏙옙</li>
 			</ul>
 			</div>
 			<div id="join2">
@@ -154,14 +147,14 @@
 			<li><input type="password" name="pass_confirm" value="<?= $row[pass] ?>"></li>
 			<li><input type="text" name="name" value="<?= $row[name] ?>"></li>
 			<li><div id="nick1"><input type="text" name="nick" value="<?= $row[nick] ?>"></div><div id="nick2" ><a href="#"><img src="../img/check_id.gif" onclick="check_nick()"></a></div></li>
-			<li><input type="text" class="hp" name="hp1" value="<?= $hp1 ?>"> 
+			<li><input type="text" class="hp" name="hp1" value="<?= $hp1 ?>">
              - <input type="text" class="hp" name="hp2" value="<?= $hp2 ?>"> - <input type="text" class="hp" name="hp3" value="<?= $hp3 ?>"></li>
-			<li><input type="text" id="email1" name="email1" value="<?= $email1 ?>"> @ <input type="text" name="email2" 
+			<li><input type="text" id="email1" name="email1" value="<?= $email1 ?>"> @ <input type="text" name="email2"
 			           value="<?= $email2 ?>"></li>
 			</ul>
 			</div>
 			<div class="clear"></div>
-			<div id="must"> * 는 필수 입력항목입니다.^^</div>
+			<div id="must"> * 占쏙옙 占십쇽옙 占쌉뤄옙占쌓몌옙占쌉니댐옙.^^</div>
 		</div>
 
 		<div id="button"><a href="#"><img src="../img/button_save.gif"  onclick="check_input()"></a>&nbsp;&nbsp;
