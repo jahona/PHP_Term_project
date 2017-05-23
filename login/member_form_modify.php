@@ -10,14 +10,14 @@
 <script>
    function check_id()
    {
-     window.open("check_id.php?id=" + document.member_form.id.value,
+     window.open("/member/check_id.php?id=" + document.member_form.id.value,
          "IDcheck",
           "left=200,top=200,width=250,height=100,scrollbars=no,resizable=yes");
    }
 
    function check_nick()
    {
-     window.open("check_nick.php?nick=" + document.member_form.nick.value,
+     window.open("/member/check_nick.php?nick=" + document.member_form.nick.value,
          "NICKcheck",
           "left=200,top=200,width=250,height=100,scrollbars=no,resizable=yes");
    }
@@ -26,35 +26,35 @@
    {
       if (!document.member_form.pass.value)
       {
-          alert("���й�ȣ�� �Է��ϼ���");
+          alert("비밀번호를 입력하세요");
           document.member_form.pass.focus();
           return;
       }
 
       if (!document.member_form.pass_confirm.value)
       {
-          alert("���й�ȣȮ���� �Է��ϼ���");
+          alert("비밀번호확인을 입력하세요");
           document.member_form.pass_confirm.focus();
           return;
       }
 
       if (!document.member_form.name.value)
       {
-          alert("�̸��� �Է��ϼ���");
+          alert("이름을 입력하세요");
           document.member_form.name.focus();
           return;
       }
 
       if (!document.member_form.nick.value)
       {
-          alert("�г����� �Է��ϼ���");
+          alert("닉네임을 입력하세요");
           document.member_form.nick.focus();
           return;
       }
 
       if (!document.member_form.hp2.value || !document.member_form.hp3.value )
       {
-          alert("�޴��� ��ȣ�� �Է��ϼ���");
+          alert("휴대폰 번호를 입력하세요");
           document.member_form.nick.focus();
           return;
       }
@@ -62,7 +62,7 @@
       if (document.member_form.pass.value !=
             document.member_form.pass_confirm.value)
       {
-          alert("���й�ȣ�� ��ġ���� �ʽ��ϴ�.\n�ٽ� �Է����ּ���.");
+          alert("비밀번호가 일치하지 않습니다.\n다시 입력해주세요.");
           document.member_form.pass.focus();
           document.member_form.pass.select();
           return;
@@ -138,13 +138,13 @@
 		<div id="form_join">
 			<div id="join1">
 			<ul>
-			<li>* ���̵�</li>
-			<li>* ���й�ȣ</li>
-			<li>* ���й�ȣ Ȯ��</li>
-			<li>* �̸�</li>
-			<li>* �г���</li>
-			<li>* �޴���</li>
-			<li>&nbsp;&nbsp;&nbsp;�̸���</li>
+			<li>* 아이디</li>
+			<li>* 비밀번호</li>
+			<li>* 비밀번호 확인</li>
+			<li>* 이름</li>
+			<li>* 닉네임</li>
+			<li>* 휴대폰</li>
+			<li>&nbsp;&nbsp;&nbsp;이메일</li>
 			</ul>
 			</div>
 			<div id="join2">
@@ -161,7 +161,7 @@
 			</ul>
 			</div>
 			<div class="clear"></div>
-			<div id="must"> * �� �ʼ� �Է��׸��Դϴ�.^^</div>
+			<div id="must"> * 는 필수 입력항목입니다.^^</div>
 		</div>
 
 		<div id="button"><a href="#"><img src="../img/button_save.gif"  onclick="check_input()"></a>&nbsp;&nbsp;
