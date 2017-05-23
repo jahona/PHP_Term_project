@@ -1,13 +1,13 @@
-<meta charset="euc-kr">
+<meta charset="utf-8">
 <?
-   if(!$nick) 
+   if(!$nick)
    {
-      echo("╢пЁвюсю╩ ют╥бго╪╪©Д.");
+      echo("К▀┴К└╓Л·└Л²└ Л·┘К═╔М∙≤Л└╦Л ■.");
    }
    else
    {
       include "../lib/dbconn.php";
- 
+
       $sql = "select * from member where nick='$nick' ";
 
       $result = mysql_query($sql, $connect);
@@ -15,15 +15,14 @@
 
       if ($num_record)
       {
-         echo "╢пЁвюсюл аъ╨╧╣к╢о╢ы.<br>";
-         echo "╢ы╦╔ ╢пЁвюсю╩ ╩Г©Кго╪╪©Д.<br>";
+         echo "К▀┴К└╓Л·└Л²╢ Л╓▒КЁ╣К░╘К▀┬К▀╓.<br>";
+         echo "К▀╓К╔╦ К▀┴К└╓Л·└Л²└ Л┌╛Л ╘М∙≤Л└╦Л ■.<br>";
       }
       else
       {
-         echo "╩Г©К╟║╢игя ╢пЁвюсют╢о╢ы.";
+         echo "Л┌╛Л ╘Й╟─К┼╔М∙° К▀┴К└╓Л·└Л·┘К▀┬К▀╓.";
       }
-    
+
       mysql_close();
    }
 ?>
-

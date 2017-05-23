@@ -1,12 +1,12 @@
 <? session_start(); ?>
 
-<meta charset="euc-kr">
+<meta charset="utf-8">
 <?
 
 	if(!$userid) {
 		echo("
 		<script>
-	     window.alert('·Î±×ÀÎ ÈÄ ÀÌ¿ëÇØ ÁÖ¼¼¿ä.')
+	     window.alert('ë¡œê·¸ì¸ í›„ ì´ìš©í•´ ì£¼ì„¸ìš”.')
 	     history.go(-1)
 	   </script>
 		");
@@ -16,7 +16,7 @@
 	if(!$subject) {
 		echo("
 	   <script>
-	     window.alert('Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä.')
+	     window.alert('ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”.')
 	     history.go(-1)
 	   </script>
 		");
@@ -26,19 +26,19 @@
 	if(!$content) {
 		echo("
 	   <script>
-	     window.alert('³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä.')
+	     window.alert('ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”.')
 	     history.go(-1)
 	   </script>
 		");
 	   exit;
 	}
-	$regist_day = date("Y-m-d (H:i)");  // ÇöÀçÀÇ '³â-¿ù-ÀÏ-½Ã-ºĞ'À» ÀúÀå
-	include "../lib/dbconn.php";       // dconn.php ÆÄÀÏÀ» ºÒ·¯¿È
+	$regist_day = date("Y-m-d (H:i)");  // í˜„ì¬ì˜ 'ë…„-ì›”-ì¼-ì‹œ-ë¶„'ì„ ì €ì¥
+	include "../lib/dbconn.php";       // dconn.php íŒŒì¼ì„ ë¶ˆëŸ¬ì˜´
 
 	if ($mode=="modify")
 	{
 		$sql = "update $table set subject='$subject', content='$content' where num=$num";
-		mysql_query($sql, $connect);  // $sql ¿¡ ÀúÀåµÈ ¸í·É ½ÇÇà
+		mysql_query($sql, $connect);  // $sql ì— ì €ì¥ëœ ëª…ë ¹ ì‹¤í–‰
 	}
 	else
 	{
@@ -54,54 +54,54 @@
 
 		if ($mode=="response")
 		{
-			// ºÎ¸ğ ±Û °¡Á®¿À±â
+			// ë¶€ëª¨ ê¸€ ê°€ì ¸ì˜¤ê¸°
 			$sql = "select * from $table where num = $num";
 			$result = mysql_query($sql, $connect);
 			$row = mysql_fetch_array($result);
 
-			// ºÎ¸ğ ±Û·Î ºÎÅÍ group_num, depth, ord °ª ¼³Á¤
+			// ë¶€ëª¨ ê¸€ë¡œ ë¶€í„° group_num, depth, ord ê°’ ì„¤ì •
 			$group_num = $row[group_num];
 			$depth = $row[depth] + 1;
 			$ord = $row[ord] + 1;
 
-			// ÇØ´ç ±×·ì¿¡¼­ ord °¡ ºÎ¸ğ±ÛÀÇ ord($row[ord]) º¸´Ù Å« °æ¿ì¿£
-			// ord °ª 1 Áõ°¡ ½ÃÅ´
+			// í•´ë‹¹ ê·¸ë£¹ì—ì„œ ord ê°€ ë¶€ëª¨ê¸€ì˜ ord($row[ord]) ë³´ë‹¤ í° ê²½ìš°ì—”
+			// ord ê°’ 1 ì¦ê°€ ì‹œí‚´
 			$sql = "update $table set ord = ord + 1 where group_num = $row[group_num] and ord > $row[ord]";
-			mysql_query($sql, $connect);  
+			mysql_query($sql, $connect);
 
-			// ·¹ÄÚµå »ğÀÔ
+			// ë ˆì½”ë“œ ì‚½ì…
 			$sql = "insert into $table (group_num, depth, ord, id, name, nick, subject,";
 			$sql .= "content, regist_day, hit, is_html) ";
 			$sql .= "values($group_num, $depth, $ord, '$userid', '$username', '$usernick', '$subject',";
-			$sql .= "'$content', '$regist_day', 0, '$is_html')";    
+			$sql .= "'$content', '$regist_day', 0, '$is_html')";
 
-			mysql_query($sql, $connect);  // $sql ¿¡ ÀúÀåµÈ ¸í·É ½ÇÇà
+			mysql_query($sql, $connect);  // $sql ì— ì €ì¥ëœ ëª…ë ¹ ì‹¤í–‰
 		}
 		else
 		{
-			$depth = 0;   // depth, ord ¸¦ 0À¸·Î ÃÊ±âÈ­
+			$depth = 0;   // depth, ord ë¥¼ 0ìœ¼ë¡œ ì´ˆê¸°í™”
 			$ord = 0;
 
-			// ·¹ÄÚµå »ğÀÔ(group_num Á¦¿Ü)
+			// ë ˆì½”ë“œ ì‚½ì…(group_num ì œì™¸)
 			$sql = "insert into $table (depth, ord, id, name, nick, subject,";
 			$sql .= "content, regist_day, hit, is_html) ";
 			$sql .= "values($depth, $ord, '$userid', '$username', '$usernick', '$subject',";
-			$sql .= "'$content', '$regist_day', 0, '$is_html')";    
-			mysql_query($sql, $connect);  // $sql ¿¡ ÀúÀåµÈ ¸í·É ½ÇÇà
+			$sql .= "'$content', '$regist_day', 0, '$is_html')";
+			mysql_query($sql, $connect);  // $sql ì— ì €ì¥ëœ ëª…ë ¹ ì‹¤í–‰
 
-			// ÃÖ±Ù auto_increment ÇÊµå(num) °ª °¡Á®¿À±â
-			$sql = "select last_insert_id()"; 
+			// ìµœê·¼ auto_increment í•„ë“œ(num) ê°’ ê°€ì ¸ì˜¤ê¸°
+			$sql = "select last_insert_id()";
 			$result = mysql_query($sql, $connect);
 			$row = mysql_fetch_array($result);
-			$auto_num = $row[0]; 
+			$auto_num = $row[0];
 
-			// group_num °ª ¾÷µ¥ÀÌÆ® 
+			// group_num ê°’ ì—…ë°ì´íŠ¸
 			$sql = "update $table set group_num = $auto_num where num=$auto_num";
 			mysql_query($sql, $connect);
 		}
 	}
 
-	mysql_close();                // DB ¿¬°á ²÷±â
+	mysql_close();                // DB ì—°ê²° ëŠê¸°
 
 	echo "
 	   <script>

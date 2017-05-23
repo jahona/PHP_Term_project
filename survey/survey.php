@@ -1,13 +1,13 @@
 <html>
  <head>
-  <title> ¼³¹®Á¶»ç </title>
-  <link rel="stylesheet" href="../css/survey.css" type="text/css">	
-  <meta charset="euc-kr">
+  <title> ì„¤ë¬¸ì¡°ì‚¬ </title>
+  <link rel="stylesheet" href="../css/survey.css" type="text/css">
+  <meta charset="utf-8">
   <script>
       function update()
       {
         var vote;
-        var length = document.survey_form.composer.length; 
+        var length = document.survey_form.composer.length;
 
         for (var i=0; i<length; i++)
         {
@@ -20,24 +20,24 @@
 
         if (i == length)
         {
-           alert("¹®Ç×À» ¼±ÅÃÇÏ¼¼¿ä!");
+           alert("ë¬¸í•­ì„ ì„ íƒí•˜ì„¸ìš”!");
            return;
         }
 
-        window.open("update.php?composer="+vote , "", 
+        window.open("update.php?composer="+vote , "",
               "left=200, top=200, width=160, height=250, status=no, scrollbars=no");
     }
 
   	  function result()
     {
-         window.open("result.php" , "", 
+         window.open("result.php" , "",
               "left=200, top=200, width=160, height=250, status=no, scrollbars=no");
     }
 </script>
 
- </head> 
+ </head>
 <body>
-  <form name=survey_form method=post > 
+  <form name=survey_form method=post >
     <table border=0 cellspacing=0 cellpdding=0 width='200' align='center'>
       <input type=hidden name=kkk value=100>
         <tr height=40>
@@ -45,22 +45,22 @@
         </tr>
         <tr height=1 bgcolor=#cccccc><td></td></tr>
        <tr height=7><td></td></tr>
-       <tr><td><b> ¢İ °¡Àå ÁÁ¾ÆÇÏ´Â ±âÅ¸ ÀÛ°î°¡´Â?</b></td></tr>
-       <tr><td><input type=radio name='composer' value='ans1' >1. Å¸·¹°¡</td></tr>
+       <tr><td><b> â™¬ ê°€ì¥ ì¢‹ì•„í•˜ëŠ” ê¸°íƒ€ ì‘ê³¡ê°€ëŠ”?</b></td></tr>
+       <tr><td><input type=radio name='composer' value='ans1' >1. íƒ€ë ˆê°€</td></tr>
        <tr height=5><td></td></tr>
-       <tr><td><input type=radio name='composer' value='ans2' >2. ºô¶ó·Îº¸½º</td></tr>
+       <tr><td><input type=radio name='composer' value='ans2' >2. ë¹Œë¼ë¡œë³´ìŠ¤</td></tr>
        <tr height=5><td></td></tr>
-       <tr><td><input type=radio name='composer' value='ans3' >3. ²ø·¹¾ç</td></tr>
+       <tr><td><input type=radio name='composer' value='ans3' >3. ëŒë ˆì–‘</td></tr>
        <tr height=5><td></td></tr>
-       <tr><td><input type=radio name='composer' value='ans4' >4. ¼Ò¸£</td></tr>
+       <tr><td><input type=radio name='composer' value='ans4' >4. ì†Œë¥´</td></tr>
        <tr height=7><td></td></tr>
        <tr height=1 bgcolor=#cccccc><td></td></tr>
        <tr>
        <tr height=7><td></td></tr>
        <tr>
-         <td align=middle><img src="../img/b_vote.gif" border="0"  style='cursor:hand' 
+         <td align=middle><img src="../img/b_vote.gif" border="0"  style='cursor:hand'
             onclick=update()></a>
-           <img src="../img/b_result.gif" border="0"  style='cursor:hand' 
+           <img src="../img/b_result.gif" border="0"  style='cursor:hand'
                onclick=result()></a></td></tr>
     </table>
   </form>

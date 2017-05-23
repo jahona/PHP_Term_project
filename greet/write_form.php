@@ -1,10 +1,10 @@
-<? 
-	session_start(); 
+<?
+	session_start();
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head> 
-<meta charset="euc-kr">
+<head>
+<meta charset="utf-8">
 <link href="../css/common.css" rel="stylesheet" type="text/css" media="all">
 <link href="../css/greet.css" rel="stylesheet" type="text/css" media="all">
 </head>
@@ -17,7 +17,7 @@
 
   <div id="menu">
 	<? include "../lib/top_menu2.php"; ?>
-  </div>  <!-- end of menu --> 
+  </div>  <!-- end of menu -->
 
   <div id="content">
 	<div id="col1">
@@ -28,7 +28,7 @@
 		</div>
 	</div> <!-- end of col1 -->
 
-	<div id="col2">        
+	<div id="col2">
 		<div id="title">
 			<img src="../img/title_greet.gif">
 		</div>
@@ -39,20 +39,20 @@
 		</div>
 		<div class="clear"></div>
 
-		<form  name="board_form" method="post" action="insert.php"> 
+		<form  name="board_form" method="post" action="insert.php">
 		<div id="write_form">
 			<div class="write_line"></div>
 			<div id="write_row1">
-				<div class="col1"> ´Ð³×ÀÓ </div>
+				<div class="col1"> ë‹‰ë„¤ìž„ </div>
 				<div class="col2"><?=$usernick?></div>
-				<div class="col3"><input type="checkbox" name="html_ok" value="y"> HTML ¾²±â</div>
+				<div class="col3"><input type="checkbox" name="html_ok" value="y"> HTML ì“°ê¸°</div>
 			</div>
 			<div class="write_line"></div>
-			<div id="write_row2"><div class="col1"> Á¦¸ñ   </div>
+			<div id="write_row2"><div class="col1"> ì œëª©   </div>
 			                     <div class="col2"><input type="text" name="subject"></div>
 			</div>
 			<div class="write_line"></div>
-			<div id="write_row3"><div class="col1"> ³»¿ë   </div>
+			<div id="write_row3"><div class="col1"> ë‚´ìš©   </div>
 			                     <div class="col2"><textarea rows="15" cols="79" name="content"></textarea></div>
 			</div>
 			<div class="write_line"></div>

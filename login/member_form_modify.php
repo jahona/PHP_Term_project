@@ -4,13 +4,20 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="euc-kr">
+<meta charset="utf-8">
 <link href="../css/common.css" rel="stylesheet" type="text/css" media="all">
 <link href="../css/member.css" rel="stylesheet" type="text/css" media="all">
 <script>
+   function check_id()
+   {
+     window.open("check_id.php?id=" + document.member_form.id.value,
+         "IDcheck",
+          "left=200,top=200,width=250,height=100,scrollbars=no,resizable=yes");
+   }
+
    function check_nick()
    {
-     window.open("/member/check_nick.php?nick=" + document.member_form.nick.value,
+     window.open("check_nick.php?nick=" + document.member_form.nick.value,
          "NICKcheck",
           "left=200,top=200,width=250,height=100,scrollbars=no,resizable=yes");
    }

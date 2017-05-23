@@ -1,21 +1,21 @@
 <? session_start(); ?>
 
-<meta charset="euc-kr">
+<meta charset="utf-8">
 <?
 	if(!$userid) {
 		echo("
 		<script>
-	     window.alert('·Î±×ÀÎ ÈÄ ÀÌ¿ëÇØ ÁÖ¼¼¿ä.')
+	     window.alert('ë¡œê·¸ì¸ í›„ ì´ìš©í•´ ì£¼ì„¸ìš”.')
 	     history.go(-1)
 	   </script>
 		");
 		exit;
 	}
-	$regist_day = date("Y-m-d (H:i)");  // ÇöÀçÀÇ '³â-¿ù-ÀÏ-½Ã-ºĞ'À» ÀúÀå
+	$regist_day = date("Y-m-d (H:i)");  // í˜„ì¬ì˜ 'ë…„-ì›”-ì¼-ì‹œ-ë¶„'ì„ ì €ì¥
 
-	// ´ÙÁß ÆÄÀÏ ¾÷·Îµå
+	// ë‹¤ì¤‘ íŒŒì¼ ì—…ë¡œë“œ
 	$files = $_FILES["upfile"];
-	$count = count($files["name"]);			
+	$count = count($files["name"]);
 	$upload_dir = './data/';
 
 	for ($i=0; $i<$count; $i++)
@@ -25,7 +25,7 @@
 		$upfile_type[$i]     = $files["type"][$i];
 		$upfile_size[$i]     = $files["size"][$i];
 		$upfile_error[$i]    = $files["error"][$i];
-      
+
 		$file = explode(".", $upfile_name[$i]);
 		$file_name = $file[0];
 		$file_ext  = $file[1];
@@ -34,13 +34,13 @@
 		{
 			$new_file_name = date("Y_m_d_H_i_s");
 			$new_file_name = $new_file_name."_".$i;
-			$copied_file_name[$i] = $new_file_name.".".$file_ext;      
+			$copied_file_name[$i] = $new_file_name.".".$file_ext;
 			$uploaded_file[$i] = $upload_dir.$copied_file_name[$i];
 
 			if( $upfile_size[$i]  > 5000000 ) {
 				echo("
 				<script>
-				alert('¾÷·Îµå ÆÄÀÏ Å©±â°¡ ÁöÁ¤µÈ ¿ë·®(5MB)À» ÃÊ°úÇÕ´Ï´Ù!<br>ÆÄÀÏ Å©±â¸¦ Ã¼Å©ÇØÁÖ¼¼¿ä! ');
+				alert('ì—…ë¡œë“œ íŒŒì¼ í¬ê¸°ê°€ ì§€ì •ëœ ìš©ëŸ‰(5MB)ì„ ì´ˆê³¼í•©ë‹ˆë‹¤!<br>íŒŒì¼ í¬ê¸°ë¥¼ ì²´í¬í•´ì£¼ì„¸ìš”! ');
 				history.go(-1)
 				</script>
 				");
@@ -51,7 +51,7 @@
 			{
 				echo("
 					<script>
-					alert('ÆÄÀÏÀ» ÁöÁ¤ÇÑ µğ·ºÅä¸®¿¡ º¹»çÇÏ´Âµ¥ ½ÇÆĞÇß½À´Ï´Ù.');
+					alert('íŒŒì¼ì„ ì§€ì •í•œ ë””ë ‰í† ë¦¬ì— ë³µì‚¬í•˜ëŠ”ë° ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.');
 					history.go(-1)
 					</script>
 				");
@@ -60,7 +60,7 @@
 		}
 	}
 
-	include "../lib/dbconn.php";       // dconn.php ÆÄÀÏÀ» ºÒ·¯¿È
+	include "../lib/dbconn.php";       // dconn.php íŒŒì¼ì„ ë¶ˆëŸ¬ì˜´
 	if ($mode=="modify")
 	{
 		$num_checked = count($_POST['del_file']);
@@ -86,25 +86,25 @@
 			if ($del_ok[$i] == "y")
 			{
 				$delete_field = "file_copied_".$i;
-				$delete_name = $row[$delete_field];				
+				$delete_name = $row[$delete_field];
 				$delete_path = "./data/".$delete_name;
 				unlink($delete_path);
 
 				$sql = "update $table set $field_org_name = '$org_name_value', $field_real_name = '$org_real_value'  where num=$num";
-				mysql_query($sql, $connect);  // $sql ¿¡ ÀúÀåµÈ ¸í·É ½ÇÇà
+				mysql_query($sql, $connect);  // $sql ì— ì €ì¥ëœ ëª…ë ¹ ì‹¤í–‰
 			}
 			else
 			{
 				if (!$upfile_error[$i])
 				{
 					$sql = "update $table set $field_org_name = '$org_name_value', $field_real_name = '$org_real_value'  where num=$num";
-					mysql_query($sql, $connect);  // $sql ¿¡ ÀúÀåµÈ ¸í·É ½ÇÇà				
+					mysql_query($sql, $connect);  // $sql ì— ì €ì¥ëœ ëª…ë ¹ ì‹¤í–‰
 				}
 			}
 
 		}
 		$sql = "update $table set subject='$subject', content='$content' where num=$num";
-		mysql_query($sql, $connect);  // $sql ¿¡ ÀúÀåµÈ ¸í·É ½ÇÇà
+		mysql_query($sql, $connect);  // $sql ì— ì €ì¥ëœ ëª…ë ¹ ì‹¤í–‰
 	}
 	else
 	{
@@ -113,9 +113,9 @@
 		$sql .= " values('$userid', '$username', '$usernick', '$subject', '$content', '$regist_day', 0, ";
 		$sql .= " '$upfile_name[0]', '$upfile_name[1]',  '$upfile_name[2]', '$upfile_type[0]', '$upfile_type[1]',  '$upfile_type[2]', ";
 		$sql .= " '$copied_file_name[0]', '$copied_file_name[1]','$copied_file_name[2]')";
-		mysql_query($sql, $connect);  // $sql ¿¡ ÀúÀåµÈ ¸í·É ½ÇÇà
+		mysql_query($sql, $connect);  // $sql ì— ì €ì¥ëœ ëª…ë ¹ ì‹¤í–‰
 	}
-	mysql_close();                // DB ¿¬°á ²÷±â
+	mysql_close();                // DB ì—°ê²° ëŠê¸°
 
 	echo "
 	   <script>
@@ -123,5 +123,3 @@
 	   </script>
 	";
 ?>
-
-  

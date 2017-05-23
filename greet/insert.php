@@ -1,10 +1,10 @@
 <? session_start(); ?>
-<meta charset="euc-kr">
+<meta charset="utf-8">
 <?
 	if(!$userid) {
 		echo("
 		<script>
-	     window.alert('·Î±×ÀÎ ÈÄ ÀÌ¿ëÇØ ÁÖ¼¼¿ä.')
+	     window.alert('ë¡œê·¸ì¸ í›„ ì´ìš©í•´ ì£¼ì„¸ìš”.')
 	     history.go(-1)
 	   </script>
 		");
@@ -14,7 +14,7 @@
 	if(!$subject) {
 		echo("
 	   <script>
-	     window.alert('Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä.')
+	     window.alert('ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”.')
 	     history.go(-1)
 	   </script>
 		");
@@ -24,15 +24,15 @@
 	if(!$content) {
 		echo("
 	   <script>
-	     window.alert('³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä.')
+	     window.alert('ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”.')
 	     history.go(-1)
 	   </script>
 		");
 	 exit;
 	}
 
-	$regist_day = date("Y-m-d (H:i)");  // ÇöÀçÀÇ '³â-¿ù-ÀÏ-½Ã-ºĞ'À» ÀúÀå
-	include "../lib/dbconn.php";       // dconn.php ÆÄÀÏÀ» ºÒ·¯¿È
+	$regist_day = date("Y-m-d (H:i)");  // í˜„ì¬ì˜ 'ë…„-ì›”-ì¼-ì‹œ-ë¶„'ì„ ì €ì¥
+	include "../lib/dbconn.php";       // dconn.php íŒŒì¼ì„ ë¶ˆëŸ¬ì˜´
 
 	if ($mode=="modify")
 	{
@@ -54,8 +54,8 @@
 		$sql .= "values('$userid', '$username', '$usernick', '$subject', '$content', '$regist_day', 0, '$is_html')";
 	}
 
-	mysql_query($sql, $connect);  // $sql ¿¡ ÀúÀåµÈ ¸í·É ½ÇÇà
-	mysql_close();                // DB ¿¬°á ²÷±â
+	mysql_query($sql, $connect);  // $sql ì— ì €ì¥ëœ ëª…ë ¹ ì‹¤í–‰
+	mysql_close();                // DB ì—°ê²° ëŠê¸°
 
 	echo "
 	   <script>
@@ -63,5 +63,3 @@
 	   </script>
 	";
 ?>
-
-  

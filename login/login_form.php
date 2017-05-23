@@ -1,8 +1,8 @@
 <? session_start(); ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head> 
-<meta charset="euc-kr">
+<head>
+<meta charset="utf-8">
 <link href="../css/common.css" rel="stylesheet" type="text/css" media="all">
 <link href="../css/member.css" rel="stylesheet" type="text/css" media="all">
 </head>
@@ -15,7 +15,7 @@
 
   <div id="menu">
 	<? include "../lib/top_menu2.php"; ?>
-  </div>  <!-- end of menu --> 
+  </div>  <!-- end of menu -->
 
   <div id="content">
 	<div id="col1">
@@ -27,11 +27,11 @@
 	</div> <!-- end of col1 -->
 
 	<div id="col2">
-        <form  name="member_form" method="post" action="login.php"> 
+        <form  name="member_form" method="post" action="login.php">
 		<div id="title">
 			<img src="../img/title_login.gif">
 		</div>
-       
+
 		<div id="login_form">
 		     <img id="login_msg" src="../img/login_msg.gif">
 			 <div class="clear"></div>
@@ -51,7 +51,7 @@
 						<ul>
 						<li><input type="text" name="id" class="login_input"></li>
 						<li><input type="password" name="pass" class="login_input"></li>
-						</ul>						
+						</ul>
 					</div>
 					<div id="login_button">
 						<input type="image" src="../img/login_button.gif">
@@ -61,7 +61,7 @@
 
 				<div id="login_line"></div>
 				<div id="join_button"><img src="../img/no_join.gif">&nbsp;&nbsp;&nbsp;&nbsp;<a href="../member/member_form.php"><img src="../img/join_button.gif"></a></div>
-			 </div>			 
+			 </div>
 		</div> <!-- end of form_login -->
 
 	    </form>
