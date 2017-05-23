@@ -155,7 +155,7 @@
 			<li><input type="text" name="name" value="<?= $row[name] ?>"></li>
 			<li><div id="nick1"><input type="text" name="nick" value="<?= $row[nick] ?>"></div><div id="nick2" ><a href="#"><img src="../img/check_id.gif" onclick="check_nick()"></a></div></li>
 			<li><input type="text" class="hp" name="hp1" value="<?= $hp1 ?>">
-             - <input type="text" class="hp" name="hp2" value="<?= $hp2 ?>"> - <input type="text" class="hp" name="hp3" value="<?= $hp3 ?>"></li>
+             - <input type="text" class="hp" name="hp2" value="<?= $hp2 ?>" maxlength="4"> - <input type="text" class="hp" name="hp3" value="<?= $hp3 ?>" maxlength="4"></li>
 			<li><input type="text" id="email1" name="email1" value="<?= $email1 ?>"> @ <input type="text" name="email2"
 			           value="<?= $email2 ?>"></li>
 			</ul>
