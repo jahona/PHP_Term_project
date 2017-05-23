@@ -1,8 +1,8 @@
-<meta charset="utf-8">
+<meta charset="euc-kr">
 <?
    if(!$id)
    {
-      echo("아이디를 입력하세요.");
+      echo("���̵� �Է��ϼ���.");
    }
    else
    {
@@ -15,12 +15,12 @@
 
       if ($num_record)
       {
-         echo "아이디가 중복됩니다!<br>";
-         echo "다른 아이디를 사용하세요.<br>";
+         echo "���̵� �ߺ��˴ϴ�!<br>";
+         echo "�ٸ� ���̵� ����ϼ���.<br>";
       }
       else
       {
-         echo "사용가능한 아이디입니다.";
+         echo "��밡���� ���̵��Դϴ�.";
       }
 
       mysql_close();

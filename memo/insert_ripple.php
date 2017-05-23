@@ -1,29 +1,29 @@
 <?
    session_start();
 ?>
-<meta charset="utf-8">
+<meta charset="euc-kr">
 <?
    if(!$userid) {
      echo("
 	   <script>
-	     window.alert('ë¡œê·¸ì¸ í›„ ì´ìš©í•˜ì„¸ìš”.')
+	     window.alert('·Î±×ÀÎ ÈÄ ÀÌ¿ëÇÏ¼¼¿ä.')
 	     history.go(-1)
 	   </script>
 	 ");
 	 exit;
    }
-
+   
    if(!$ripple_content) {
      echo("
 	   <script>
-	     window.alert('ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”.')
+	     window.alert('³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä.')
 	     history.go(-1)
 	   </script>
 	 ");
 	 exit;
    }
-
-   include "../lib/dbconn.php";       // dconn.php íŒŒì¼ì„ ë¶ˆëŸ¬ì˜´
+   
+   include "../lib/dbconn.php";       // dconn.php ÆÄÀÏÀ» ºÒ·¯¿È
 
    $sql = "select * from member where id='$userid'";
    $result = mysql_query($sql, $connect);
@@ -32,19 +32,21 @@
    $name = $row[name];
    $nick = $row[nick];
 
-   $regist_day = date("Y-m-d (H:i)");  // í˜„ì¬ì˜ 'ë…„-ì›”-ì¼-ì‹œ-ë¶„'ì„ ì €ì¥
+   $regist_day = date("Y-m-d (H:i)");  // ÇöÀçÀÇ '³â-¿ù-ÀÏ-½Ã-ºĞ'À» ÀúÀå
 
-   // ë ˆì½”ë“œ ì‚½ì… ëª…ë ¹
+   // ·¹ÄÚµå »ğÀÔ ¸í·É
    $sql = "insert into memo_ripple (parent, id, name, nick, content, regist_day) ";
-   $sql .= "values($num, '$userid', '$name', '$nick', '$ripple_content', '$regist_day')";
+   $sql .= "values($num, '$userid', '$name', '$nick', '$ripple_content', '$regist_day')";    
+   
+   mysql_query($sql, $connect);  // $sql ¿¡ ÀúÀåµÈ ¸í·É ½ÇÇà
 
-   mysql_query($sql, $connect);  // $sql ì— ì €ì¥ëœ ëª…ë ¹ ì‹¤í–‰
-
-   mysql_close();                // DB ì—°ê²° ëŠê¸°
-
+   mysql_close();                // DB ¿¬°á ²÷±â
+   
    echo "
 	   <script>
 	    location.href = 'memo.php';
 	   </script>
 	";
 ?>
+
+   

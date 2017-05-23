@@ -1,19 +1,19 @@
-<div id="logo"><a href="../index.php"><img src="../img/logo.gif" border="0"></a></div>
-<div id="moto"><img src="../img/moto.gif"></div>
-<div id="top_login">
+    <div id="logo"><a href="../index.php"><img src="../img/logo.gif" border="0"></a></div>
+	<div id="moto"><img src="../img/moto.gif"></div>
+	<div id="top_login">
 <?
-if(!$userid)
-{
+    if(!$userid)
+	{
 ?>
-      <a href="../login/login_form.php">ë¡œê·¸ì¸</a> | <a href="../member/member_form.php">íšŒì›ê°€ìž…</a>
+          <a href="../login/login_form.php">·Î±×ÀÎ</a> | <a href="../member/member_form.php">È¸¿ø°¡ÀÔ</a>
 <?
-}
-else
-{
+	}
+	else
+	{
 ?>
-<?=$usernick?> (level:<?=$userlevel?>) |
-<a href="../login/logout.php">ë¡œê·¸ì•„ì›ƒ</a> | <a href="../login/member_form_modify.php">ì •ë³´ìˆ˜ì •</a>
+		<?=$usernick?> (level:<?=$userlevel?>) | 
+		<a href="../login/logout.php">·Î±×¾Æ¿ô</a> | <a href="../login/member_form_modify.php">Á¤º¸¼öÁ¤</a>
 <?
-}
+	}
 ?>
-</div>
+	 </div>
