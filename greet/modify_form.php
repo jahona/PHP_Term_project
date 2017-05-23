@@ -1,18 +1,18 @@
-<?
-	session_start();
+<? 
+	session_start(); 
 	include "../lib/dbconn.php";
 
 	$sql = "select * from greet where num=$num";
 	$result = mysql_query($sql, $connect);
 
-	$row = mysql_fetch_array($result);
+	$row = mysql_fetch_array($result);       	
 	$item_subject     = $row[subject];
 	$item_content     = $row[content];
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta charset="utf-8">
+<head> 
+<meta charset="euc-kr">
 <link href="../css/common.css" rel="stylesheet" type="text/css" media="all">
 <link href="../css/greet.css" rel="stylesheet" type="text/css" media="all">
 </head>
@@ -25,7 +25,7 @@
 
   <div id="menu">
 	<? include "../lib/top_menu2.php"; ?>
-  </div>  <!-- end of menu -->
+  </div>  <!-- end of menu --> 
 
   <div id="content">
 	<div id="col1">
@@ -36,7 +36,7 @@
 		</div>
 	</div> <!-- end of col1 -->
 
-	<div id="col2">
+	<div id="col2">        
 		<div id="title">
 			<img src="../img/title_greet.gif">
 		</div>
@@ -48,19 +48,19 @@
 		</div>
 
 		<div class="clear"></div>
-		<form  name="board_form" method="post" action="insert.php?mode=modify&num=<?=$num?>&page=<?=$page?>">
+		<form  name="board_form" method="post" action="insert.php?mode=modify&num=<?=$num?>&page=<?=$page?>"> 
 		<div id="write_form">
 			<div class="write_line"></div>
 			<div id="write_row1">
-				<div class="col1"> ë‹‰ë„¤ìž„ </div>
+				<div class="col1"> ´Ð³×ÀÓ </div>
 				<div class="col2"><?=$usernick?></div>
 			</div>
 			<div class="write_line"></div>
-			<div id="write_row2"><div class="col1"> ì œëª©   </div>
+			<div id="write_row2"><div class="col1"> Á¦¸ñ   </div>
 			                     <div class="col2"><input type="text" name="subject" value="<?=$item_subject?>" ></div>
 			</div>
 			<div class="write_line"></div>
-			<div id="write_row3"><div class="col1"> ë‚´ìš©   </div>
+			<div id="write_row3"><div class="col1"> ³»¿ë   </div>
 			                     <div class="col2"><textarea rows="15" cols="79" name="content"><?=$item_content?></textarea></div>
 			</div>
 			<div class="write_line"></div>
