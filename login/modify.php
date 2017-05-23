@@ -15,6 +15,9 @@
 
    mysql_query($sql, $connect);  // $sql 에 저장된 명령 실행
 
+	 $_SESSION['username'] = $username;
+	 $_SESSION['usernick'] = $nick;
+
    mysql_close();                // DB 연결 끊기
    echo "
 	   <script>
