@@ -5,6 +5,7 @@
 {
 ?>
     <ul>
+      <li><a href="../index.php" class="active"><!--홈--><span class="icon fa-home"></span></a></li>
       <li><a href="./login/login_form.php"><!--로그인--><span class="icon fa-home"></span></a></li>
       <li><a href="./member/member_form.php"><!--회원가입--><span class="icon fa-home"></span></a></li>
       <li><a href="./memo/memo.php"><span class="icon fa-home"></span></a></li>

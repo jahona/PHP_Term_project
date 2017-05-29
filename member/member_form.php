@@ -107,7 +107,31 @@
 
 		<!-- nav -->
 		<nav id="nav">
-    		<? include "../lib/top_login1.php"; ?>
+    		<?
+					if(!$userid)
+				{
+				?>
+						<ul>
+							<li><a href="../index.php"><!--홈--><span class="icon fa-home"></span></a></li>
+							<li><a href="./login/login_form.php"><!--로그인--><span class="icon fa-home"></span></a></li>
+							<li><a href="./member/member_form.php" class="active"><!--회원가입--><span class="icon fa-home"></span></a></li>
+							<li><a href="./memo/memo.php"><span class="icon fa-home"></span></a></li>
+							<li><a href="./greet/list.php"><span class="icon fa-home"></span></a></li>
+							<li><a href="./concert/list.php"><span class="icon fa-home"></span></a></li>
+							<li><a href="./download/list.php"><span class="icon fa-home"></span></a></li>
+							<li><a href="./free/list.php"><span class="icon fa-home"></span></a></li>
+							<li><a href="./qna/list.php"><span class="icon fa-home"></span></a></li>
+
+				<?
+				}
+				else
+				{
+				?>
+				<?=$usernick?> (level:<?=$userlevel?>) |
+				<a href="./login/logout.php">로그아웃</a> | <a href="./login/member_form_modify.php">정보수정</a>
+				<?
+				}
+				?>
 			</ul>
 		</nav>
 
@@ -121,14 +145,16 @@
 							<form name="member_form" method="post" action="insert.php">
 								<div class="field half first">
 									<h3>회원가입</h3>
-									<div class="form_join">
+									<div class="form_join" style="color: #111111">
 
 
 									<div id="id1" style="float: left; width:80%;">
 										<input type="text" name="id" placeholder="ID를 입력해주세요" style="width: 240pt">
 									</div>
 									<div id="id2" style="float: left; width:20%;">
-										<a href="#"><img src="../img/check_id.gif" onclick="check_id()"></a>
+										<a href="#">
+											<img src="../img/check_id.gif" onclick="check_id()">
+										</a>
 										<br><br>
 									</div>
 									<div>
@@ -140,19 +166,25 @@
 									<input type="text" name="name"  placeholder="이름을 입력해주세요">
 									<br>
 									<input type="text" name="nick"  placeholder="닉네임을 입력해주세요">
+									<br>
+									<select class="hp" name="hp1" style="float: left; width:30%; color: #111111">
+		             		<option value='010' style="color: #111111;">010</option>
+		             		<option value='011' style="color: #111111;">011</option>
+		             		<option value='016' style="color: #111111;">016</option>
+		             		<option value='017' style="color: #111111;">017</option>
+		             		<option value='018' style="color: #111111;">018</option>
+		             		<option value='019' style="color: #111111;">019</option>
+            			</select>
+									<div style="float: left; width:5%; color: #ffffff"><h2> - </h2></div>
+									<input type="text" maxlength="4" class="hp" name="hp2" placeholder="1234" style="float: left; width:30%; color: #111111;">
+									<div style="float: left; width:5%; color: #ffffff"><h2> - </h2></div>
+									<input type="text" maxlength="4" class="hp" name="hp3" placeholder="1234" style="float: left; width:30%; color: #111111">
+									<input type="text" id="email1" name="email1" placeholder="kadamon2007@gmail.com">
 									</div>
-
 								</div>
-
-								<div>
-									<div id="join2">
-									<ul>
-									<li><div id="id1"><input type="text" name="id"></div><div id="id2"><a href="#"><img src="../img/check_id.gif" onclick="check_id()"></a></div><div id="id3">4~12자의 영문 소문자, 숫자와 특수기호(_) 만 사용할 수 있습니다.</div></li>
-								</div>
-								</div>
-
-								<div id="button"><a href="#"><img src="../img/button_save.gif"  onclick="check_input()"></a>&nbsp;&nbsp;
-								                 <a href="#"><img src="../img/button_reset.gif" onclick="reset_form()"></a>
+								<div id="button">
+									<a href="#"><img src="../img/button_save.gif"  onclick="check_input()"></a>&nbsp;&nbsp;
+								  <a href="#"><img src="../img/button_reset.gif" onclick="reset_form()"></a>
 								</div>
 							    </form>
 						</div>
