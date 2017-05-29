@@ -1,6 +1,6 @@
 <?
    include "../lib/dbconn.php";
- 
+
    $sql = "update survey set $composer = $composer + 1";
    mysql_query($sql, $connect);
 
@@ -8,4 +8,3 @@
 
    Header("location:result.php");
 ?>
-

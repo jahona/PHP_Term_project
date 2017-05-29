@@ -1,14 +1,14 @@
 <?
            session_start();
 ?>
-<meta charset="euc-kr">
+<meta charset="utf-8">
 <?
-   // ÀÌÀüÈ­¸é¿¡¼­ ÀÌ¸§ÀÌ ÀÔ·ÂµÇÁö ¾Ê¾ÒÀ¸¸é "ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä"
-   // ¸Ş½ÃÁö Ãâ·Â
+   // ì´ì „í™”ë©´ì—ì„œ ì´ë¦„ì´ ì…ë ¥ë˜ì§€ ì•Šì•˜ìœ¼ë©´ "ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”"
+   // ë©”ì‹œì§€ ì¶œë ¥
    if(!$id) {
      echo("
            <script>
-             window.alert('¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.')
+             window.alert('ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”.')
              history.go(-1)
            </script>
          ");
@@ -18,7 +18,7 @@
    if(!$pass) {
      echo("
            <script>
-             window.alert('ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.')
+             window.alert('ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.')
              history.go(-1)
            </script>
          ");
@@ -32,11 +32,11 @@
 
    $num_match = mysql_num_rows($result);
 
-   if(!$num_match) 
+   if(!$num_match)
    {
      echo("
            <script>
-             window.alert('µî·ÏµÇÁö ¾ÊÀº ¾ÆÀÌµğÀÔ´Ï´Ù.')
+             window.alert('ë“±ë¡ë˜ì§€ ì•Šì€ ì•„ì´ë””ì…ë‹ˆë‹¤.')
              history.go(-1)
            </script>
          ");
@@ -51,7 +51,7 @@
         {
            echo("
               <script>
-                window.alert('ºñ¹Ğ¹øÈ£°¡ Æ²¸³´Ï´Ù.')
+                window.alert('ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë¦½ë‹ˆë‹¤.')
                 history.go(-1)
               </script>
            ");
@@ -76,5 +76,5 @@
               </script>
            ");
         }
-   }          
+   }
 ?>

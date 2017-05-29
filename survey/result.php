@@ -5,7 +5,7 @@
    $result = mysql_query($sql, $connect);
    $row = mysql_fetch_array($result);
 
-   $total = $row[ans1] + $row[ans2] + $row[ans3] + $row[ans4]; 
+   $total = $row[ans1] + $row[ans2] + $row[ans3] + $row[ans4];
 
    $ans1_percent = $row[ans1]/$total * 100;
    $ans2_percent = $row[ans2]/$total * 100;
@@ -19,12 +19,12 @@
 ?>
 <html>
  <head>
-  <title> ¼³¹®Á¶»ç </title>
+  <title> ì„¤ë¬¸ì¡°ì‚¬ </title>
   <link rel="stylesheet" href="../css/survey.css" type="text/css">
-  <meta charset="euc-kr">
+  <meta charset="utf-8">
  </head>
 <body>
-			
+
     <table width=250 height=250 border='0' cellspacing='0' cellpadding='0'>
         <tr>
           <td width=180 height=1 colspan=5 bgcolor=#ffffff></td>
@@ -32,23 +32,23 @@
         <tr>
           <td width=1 height=35 bgcolor='#ffffff'></td>
           <td width=9 bgcolor='#ffffff'></td>
-          <td width=150  align=center bgcolor='#ffffff'><b> 
-          ÃÑ ÅõÇ¥¼ö : <? echo $total ?> &nbsp;¸í </b></td>
+          <td width=150  align=center bgcolor='#ffffff'><b>
+          ì´ íˆ¬í‘œìˆ˜ : <? echo $total ?> &nbsp;ëª… </b></td>
           <td width=9 bgcolor='#ffffff'></td>
           <td width=1 bgcolor='#ffffff'></td>
         </tr>
         <tr>
           <td height=29 bgcolor='#ffffff'></td>
           <td></td>
-          <td valign=middle><b>¢Ý °¡Àå ÁÁ¾ÆÇÏ´Â ±âÅ¸ ÀÛ°î°¡´Â?</b></td>
+          <td valign=middle><b>â™¬ ê°€ìž¥ ì¢‹ì•„í•˜ëŠ” ê¸°íƒ€ ìž‘ê³¡ê°€ëŠ”?</b></td>
           <td></td>
           <td bgcolor='#ffffff'></td>
         </tr>
         <tr>
           <td height=20 bgcolor='#ffffff'></td>
           <td></td>
-          <td> Å¸·¹°¡ (<b><? echo $ans1_percent ?></b> %)
-            <font color=purple><b><? echo $row[ans1] ?></b></font> ¸í</td>
+          <td> íƒ€ë ˆê°€ (<b><? echo $ans1_percent ?></b> %)
+            <font color=purple><b><? echo $row[ans1] ?></b></font> ëª…</td>
           <td></td>
           <td bgcolor='#ffffff'></td>
         </tr>
@@ -66,7 +66,7 @@
                ";
 ?>
         </tr>
-    </table>	
+    </table>
           </td>
           <td></td>
           <td bgcolor='#ffffff'></td>
@@ -74,8 +74,8 @@
         <tr>
           <td height=20 bgcolor='#ffffff'></td>
           <td></td>
-          <td> ºô¶ó·Îº¸½º (<b><? echo $ans2_percent ?></b> %)
-            <font color=blue><b><? echo $row[ans2] ?></b></font> ¸í</td>
+          <td> ë¹Œë¼ë¡œë³´ìŠ¤ (<b><? echo $ans2_percent ?></b> %)
+            <font color=blue><b><? echo $row[ans2] ?></b></font> ëª…</td>
           <td></td>
           <td bgcolor='#ffffff'></td>
         </tr>
@@ -93,7 +93,7 @@
                ";
 ?>
         </tr>
-    </table>	
+    </table>
           </td>
           <td></td>
           <td bgcolor='#ffffff'></td>
@@ -101,8 +101,8 @@
         <tr>
           <td height=20 bgcolor='#ffffff'></td>
           <td></td>
-          <td> ²ø·¹¾ç (<b><? echo $ans3_percent ?></b> %)
-            <font color=green><b><? echo $row[ans3] ?></b></font> ¸í</td>
+          <td> ëŒë ˆì–‘ (<b><? echo $ans3_percent ?></b> %)
+            <font color=green><b><? echo $row[ans3] ?></b></font> ëª…</td>
           <td></td>
           <td bgcolor='#ffffff'></td>
         </tr>
@@ -120,7 +120,7 @@
                ";
 ?>
         </tr>
-    </table>	
+    </table>
           </td>
           <td></td>
           <td bgcolor='#ffffff'></td>
@@ -129,8 +129,8 @@
         <tr>
           <td height=20 bgcolor='#ffffff'></td>
           <td></td>
-          <td> ¼Ò¸£ (<b><? echo $ans4_percent ?></b> %)
-            <font color=skyblue><b><? echo $row[ans4] ?></b></font> ¸í</td>
+          <td> ì†Œë¥´ (<b><? echo $ans4_percent ?></b> %)
+            <font color=skyblue><b><? echo $row[ans4] ?></b></font> ëª…</td>
           <td></td>
           <td bgcolor='#ffffff'></td>
         </tr>
@@ -157,7 +157,7 @@
           <td height=40 bgcolor='#ffffff'></td>
           <td></td>
           <td align=center valign=middle>
-            <input type='image' style='cursor:hand' src='../img/close.gif' border=0 
+            <input type='image' style='cursor:hand' src='../img/close.gif' border=0
                  onfocus=this.blur() onclick="window.close()"></td>
           <td></td>
           <td bgcolor='#ffffff'></td>
@@ -168,4 +168,3 @@
     </table>
 </body>
 </html>
-

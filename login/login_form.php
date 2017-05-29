@@ -3,74 +3,71 @@
 <html>
 <head>
 <meta charset="utf-8">
-
-<link rel="stylesheet" href="../assets/css/main.css" />
+<link href="../css/common.css" rel="stylesheet" type="text/css" media="all">
+<link href="../css/member.css" rel="stylesheet" type="text/css" media="all">
 </head>
 
 <body>
-  <div class="page-wrap">
+<div id="wrap">
+  <div id="header">
+    <? include "../lib/top_login2.php"; ?>
+  </div>  <!-- end of header -->
 
-    <!-- nav -->
-    <nav id="nav">
-        <? include "../lib/top_login1.php"; ?>
-      </ul>
-    </nav>
+  <div id="menu">
+	<? include "../lib/top_menu2.php"; ?>
+  </div>  <!-- end of menu -->
 
-    <section id="main">
-      <section id="banner">
-        <div class="inner">
-          <h1> &nbsp 로그인</h1>
-        	<div id="col2">
-                <form  name="member_form" method="post" action="login.php">
+  <div id="content">
+	<div id="col1">
+		<div id="left_menu">
+<?
+			include "../lib/left_menu.php";
+?>
+		</div>
+	</div> <!-- end of col1 -->
 
+	<div id="col2">
+        <form  name="member_form" method="post" action="login.php">
+		<div id="title">
+			<img src="../img/title_login.gif">
+		</div>
 
-        		<div id="login_form">
-        		     <?php // TODO: 로그인 입력 메시지 ?>
-        			 <div class="clear"></div>
-        			 <div id="login2">
-        				<div id="id_input_button">
-        					<div id="id_pw_title">
-        						<ul>
-        						<ul>ID
-                      <div id="id_pw_input">
-                        <input type="text" name="id" class="login_input" style="color: black">
-                      </div>
-                    </ul>
-        						<ul>PASSWORD
-                      <div id="id_pw_input">
-                        <input type="password" name="pass" class="login_input" style="color: black">
-                      </div>
-                    </ul>
-        						</ul>
-        					</div>
+		<div id="login_form">
+		     <img id="login_msg" src="../img/login_msg.gif">
+			 <div class="clear"></div>
 
-        					<div id="login_button">
-                    <ul class="actions">
-  										<li>&nbsp &nbsp &nbsp
-                        <input value="LOGIN" class="button" type="submit"></li>
-  									</ul>
-        					</div>
-        				</div>
-        				<div class="clear"></div>
+			 <div id="login1">
+				<img src="../img/login_key.gif">
+			 </div>
+			 <div id="login2">
+				<div id="id_input_button">
+					<div id="id_pw_title">
+						<ul>
+						<li><img src="../img/id_title.gif"></li>
+						<li><img src="../img/pw_title.gif"></li>
+						</ul>
+					</div>
+					<div id="id_pw_input">
+						<ul>
+						<li><input type="text" name="id" class="login_input"></li>
+						<li><input type="password" name="pass" class="login_input"></li>
+						</ul>
+					</div>
+					<div id="login_button">
+						<input type="image" src="../img/login_button.gif">
+					</div>
+				</div>
+				<div class="clear"></div>
 
-        				<div id="login_line"></div>
-        				<div id="join_button"><div class="">
-        				  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   아직 회원이 아니십니까?
-        				     <div>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        				       <a href="../member/member_form.php"><h3> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;회원가입</h3></a></div>
-        				     </div>
+				<div id="login_line"></div>
+				<div id="join_button"><img src="../img/no_join.gif">&nbsp;&nbsp;&nbsp;&nbsp;<a href="../member/member_form.php"><img src="../img/join_button.gif"></a></div>
+			 </div>
+		</div> <!-- end of form_login -->
 
-        			    </div>
+	    </form>
+	</div> <!-- end of col2 -->
+  </div> <!-- end of content -->
+</div> <!-- end of wrap -->
 
-        		    </div> <!-- end of form_login -->
-
-        	    </form>
-      	   </div> <!-- end of col2 -->
-         </div> <!-- end of inner -->
-       </section> <!-- end of bannner -->
-     </section>
-   </div> <!-- end of wrap -->
 </body>
 </html>

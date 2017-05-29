@@ -1,5 +1,5 @@
-<? 
-	session_start(); 
+<?
+	session_start();
 	include "../lib/dbconn.php";
 
 	if ($mode=="modify")
@@ -7,8 +7,8 @@
 		$sql = "select * from $table where num=$num";
 		$result = mysql_query($sql, $connect);
 
-		$row = mysql_fetch_array($result);       
-	
+		$row = mysql_fetch_array($result);
+		
 		$item_subject     = $row[subject];
 		$item_content     = $row[content];
 
@@ -23,8 +23,8 @@
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head> 
-<meta charset="euc-kr">
+<head>
+<meta charset="utf-8">
 <link href="../css/common.css" rel="stylesheet" type="text/css" media="all">
 <link href="../css/concert.css" rel="stylesheet" type="text/css" media="all">
 <script>
@@ -32,14 +32,14 @@
    {
       if (!document.board_form.subject.value)
       {
-          alert("Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä!");    
+          alert("ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”!");
           document.board_form.subject.focus();
           return;
       }
 
       if (!document.board_form.content.value)
       {
-          alert("³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä!");    
+          alert("ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”!");
           document.board_form.content.focus();
           return;
       }
@@ -57,7 +57,7 @@
 
   <div id="menu">
 	<? include "../lib/top_menu2.php"; ?>
-  </div>  <!-- end of menu --> 
+  </div>  <!-- end of menu -->
 
   <div id="content">
 	<div id="col1">
@@ -69,7 +69,7 @@
 	</div> <!-- end of col1 -->
 
 	<div id="col2">
-        
+
 		<div id="title">
 			<img src="../img/title_concert.gif">
 		</div>
@@ -87,70 +87,70 @@
 	{
 
 ?>
-		<form  name="board_form" method="post" action="insert.php?mode=modify&num=<?=$num?>&page=<?=$page?>&table=<?=$table?>" enctype="multipart/form-data"> 
+		<form  name="board_form" method="post" action="insert.php?mode=modify&num=<?=$num?>&page=<?=$page?>&table=<?=$table?>" enctype="multipart/form-data">
 <?
 	}
 	else
 	{
 ?>
-		<form  name="board_form" method="post" action="insert.php?table=<?=$table?>" enctype="multipart/form-data"> 
+		<form  name="board_form" method="post" action="insert.php?table=<?=$table?>" enctype="multipart/form-data">
 <?
 	}
 ?>
 		<div id="write_form">
 			<div class="write_line"></div>
-			<div id="write_row1"><div class="col1"> º°¸í </div><div class="col2"><?=$usernick?></div>
+			<div id="write_row1"><div class="col1"> ë³„ëª… </div><div class="col2"><?=$usernick?></div>
 <?
 	if( $userid && ($mode != "modify") )
 	{
 ?>
-				<div class="col3"><input type="checkbox" name="html_ok" value="y"> HTML ¾²±â</div>
+				<div class="col3"><input type="checkbox" name="html_ok" value="y"> HTML ì“°ê¸°</div>
 <?
 	}
-?>						
+?>
 			</div>
 			<div class="write_line"></div>
-			<div id="write_row2"><div class="col1"> Á¦¸ñ   </div>
+			<div id="write_row2"><div class="col1"> ì œëª©   </div>
 			                     <div class="col2"><input type="text" name="subject" value="<?=$item_subject?>" ></div>
 			</div>
 			<div class="write_line"></div>
-			<div id="write_row3"><div class="col1"> ³»¿ë   </div>
+			<div id="write_row3"><div class="col1"> ë‚´ìš©   </div>
 			                     <div class="col2"><textarea rows="15" cols="79" name="content"><?=$item_content?></textarea></div>
 			</div>
 			<div class="write_line"></div>
-			<div id="write_row4"><div class="col1"> ÀÌ¹ÌÁöÆÄÀÏ1   </div>
+			<div id="write_row4"><div class="col1"> ì´ë¯¸ì§€íŒŒì¼1   </div>
 			                     <div class="col2"><input type="file" name="upfile[]"></div>
 			</div>
 			<div class="clear"></div>
 <? 	if ($mode=="modify" && $item_file_0)
 	{
 ?>
-			<div class="delete_ok"><?=$item_file_0?> ÆÄÀÏÀÌ µî·ÏµÇ¾î ÀÖ½À´Ï´Ù. <input type="checkbox" name="del_file[]" value="0"> »èÁ¦</div>
+			<div class="delete_ok"><?=$item_file_0?> íŒŒì¼ì´ ë“±ë¡ë˜ì–´ ìˆìŠµë‹ˆë‹¤. <input type="checkbox" name="del_file[]" value="0"> ì‚­ì œ</div>
 			<div class="clear"></div>
 <?
 	}
 ?>
 			<div class="write_line"></div>
-			<div id="write_row5"><div class="col1"> ÀÌ¹ÌÁöÆÄÀÏ2  </div>
+			<div id="write_row5"><div class="col1"> ì´ë¯¸ì§€íŒŒì¼2  </div>
 			                     <div class="col2"><input type="file" name="upfile[]"></div>
 			</div>
 <? 	if ($mode=="modify" && $item_file_1)
 	{
 ?>
-			<div class="delete_ok"><?=$item_file_1?> ÆÄÀÏÀÌ µî·ÏµÇ¾î ÀÖ½À´Ï´Ù. <input type="checkbox" name="del_file[]" value="1"> »èÁ¦</div>
+			<div class="delete_ok"><?=$item_file_1?> íŒŒì¼ì´ ë“±ë¡ë˜ì–´ ìˆìŠµë‹ˆë‹¤. <input type="checkbox" name="del_file[]" value="1"> ì‚­ì œ</div>
 			<div class="clear"></div>
 <?
 	}
 ?>
 			<div class="write_line"></div>
 			<div class="clear"></div>
-			<div id="write_row6"><div class="col1"> ÀÌ¹ÌÁöÆÄÀÏ3   </div>
+			<div id="write_row6"><div class="col1"> ì´ë¯¸ì§€íŒŒì¼3   </div>
 			                     <div class="col2"><input type="file" name="upfile[]"></div>
 			</div>
 <? 	if ($mode=="modify" && $item_file_2)
 	{
 ?>
-			<div class="delete_ok"><?=$item_file_2?> ÆÄÀÏÀÌ µî·ÏµÇ¾î ÀÖ½À´Ï´Ù. <input type="checkbox" name="del_file[]" value="2"> »èÁ¦</div>
+			<div class="delete_ok"><?=$item_file_2?> íŒŒì¼ì´ ë“±ë¡ë˜ì–´ ìˆìŠµë‹ˆë‹¤. <input type="checkbox" name="del_file[]" value="2"> ì‚­ì œ</div>
 			<div class="clear"></div>
 <?
 	}
