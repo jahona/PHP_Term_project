@@ -9,6 +9,7 @@
 </head>
 
 <body>
+	<!-- test -->
 <div id="wrap">
 	<div id="header">
     <? include "./lib/top_login1.php"; ?>
