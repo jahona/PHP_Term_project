@@ -1,10 +1,10 @@
 <? session_start(); ?>
-<meta charset="utf-8">
+<meta charset="euc-kr">
 <?
 	if(!$userid) {
 		echo("
 		<script>
-	     window.alert('ë¡œê·¸ì¸ í›„ ì´ìš©í•´ ì£¼ì„¸ìš”.')
+	     window.alert('·Î±×ÀÎ ÈÄ ÀÌ¿ëÇØ ÁÖ¼¼¿ä.')
 	     history.go(-1)
 	   </script>
 		");
@@ -14,16 +14,16 @@
 	if(!$content) {
 		echo("
 	   <script>
-	     window.alert('ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”.')
+	     window.alert('³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä.')
 	     history.go(-1)
 	   </script>
 		");
 	 exit;
 	}
 
-	$regist_day = date("Y-m-d (H:i)");  // í˜„ì¬ì˜ 'ë…„-ì›”-ì¼-ì‹œ-ë¶„'ì„ ì €ì¥
+	$regist_day = date("Y-m-d (H:i)");  // ÇöÀçÀÇ '³â-¿ù-ÀÏ-½Ã-ºĞ'À» ÀúÀå
 
-	include "../lib/dbconn.php";       // dconn.php íŒŒì¼ì„ ë¶ˆëŸ¬ì˜´
+	include "../lib/dbconn.php";       // dconn.php ÆÄÀÏÀ» ºÒ·¯¿È
 
     $sql = "select * from member where id='$userid'";
     $result = mysql_query($sql, $connect);
@@ -35,9 +35,9 @@
 	$sql = "insert into memo (id, name, nick, content, regist_day) ";
 	$sql .= "values('$userid', '$name', '$nick', '$content', '$regist_day')";
 
-	mysql_query($sql, $connect);  // $sql ì— ì €ì¥ëœ ëª…ë ¹ ì‹¤í–‰
+	mysql_query($sql, $connect);  // $sql ¿¡ ÀúÀåµÈ ¸í·É ½ÇÇà
 
-	mysql_close();                // DB ì—°ê²° ëŠê¸°
+	mysql_close();                // DB ¿¬°á ²÷±â
 
 	echo "
 	   <script>
@@ -45,3 +45,5 @@
 	   </script>
 	";
 ?>
+
+  

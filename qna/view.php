@@ -1,11 +1,11 @@
-<?
-	session_start();
+<? 
+	session_start(); 
 	include "../lib/dbconn.php";
 
 	$sql = "select * from $table where num=$num";
 	$result = mysql_query($sql, $connect);
-    $row = mysql_fetch_array($result);
-
+    $row = mysql_fetch_array($result);       
+	
 	$item_num     = $row[num];
 	$item_id      = $row[id];
 	$item_name    = $row[name];
@@ -23,19 +23,19 @@
 	}
 
 	$new_hit = $item_hit + 1;
-	$sql = "update $table set hit=$new_hit where num=$num";   // ê¸€ ì¡°íšŒìˆ˜ ì¦ê°€ì‹œí‚´
+	$sql = "update $table set hit=$new_hit where num=$num";   // ±Û Á¶È¸¼ö Áõ°¡½ÃÅ´
 	mysql_query($sql, $connect);
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta charset="utf-8">
+<head> 
+<meta charset="euc-kr">
 <link href="../css/common.css" rel="stylesheet" type="text/css" media="all">
 <link href="../css/board1.css" rel="stylesheet" type="text/css" media="all">
 <script>
-    function del(href)
+    function del(href) 
     {
-        if(confirm("í•œë²ˆ ì‚­ì œí•œ ìë£ŒëŠ” ë³µêµ¬í•  ë°©ë²•ì´ ì—†ìŠµë‹ˆë‹¤.\n\nì •ë§ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?")) {
+        if(confirm("ÇÑ¹ø »èÁ¦ÇÑ ÀÚ·á´Â º¹±¸ÇÒ ¹æ¹ıÀÌ ¾ø½À´Ï´Ù.\n\nÁ¤¸» »èÁ¦ÇÏ½Ã°Ú½À´Ï±î?")) {
                 document.location.href = href;
         }
     }
@@ -49,7 +49,7 @@
   </div>  <!-- end of header -->
   <div id="menu">
 	<? include "../lib/top_menu2.php"; ?>
-  </div>  <!-- end of menu -->
+  </div>  <!-- end of menu --> 
 
   <div id="content">
 	<div id="col1">
@@ -68,8 +68,8 @@
 		<div id="view_comment"> &nbsp;</div>
 
 		<div id="view_title">
-			<div id="view_title1"><?= $item_subject ?></div><div id="view_title2"><?= $item_nick ?> | ì¡°íšŒ : <?= $item_hit ?>
-			                      | <?= $item_date ?> </div>
+			<div id="view_title1"><?= $item_subject ?></div><div id="view_title2"><?= $item_nick ?> | Á¶È¸ : <?= $item_hit ?>  
+			                      | <?= $item_date ?> </div>	
 		</div>
 
 		<div id="view_content">
@@ -78,7 +78,7 @@
 
 		<div id="view_button">
 				<a href="list.php?table=<?=$table?>&page=<?=$page?>"><img src="../img/list.png"></a>&nbsp;
-<?
+<? 
 	if($userid && ($userid==$item_id) )
 	{
 ?>
@@ -87,7 +87,7 @@
 <?
 	}
 ?>
-<?
+<? 
 	if($userid)
 	{
 ?>
