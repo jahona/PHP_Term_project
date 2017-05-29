@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link href="../css/common.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="../assets/css/main.css" />
 <link href="../css/member.css" rel="stylesheet" type="text/css" media="all">
 <script>
    function check_id()
@@ -110,67 +110,119 @@
     mysql_close();
 ?>
 <body>
-<div id="wrap">
-  <div id="header">
-    <? include "../lib/top_login2.php"; ?>
-  </div>  <!-- end of header -->
+  <div class="page-wrap">
 
-  <div id="menu">
-	<? include "../lib/top_menu2.php"; ?>
-  </div>  <!-- end of menu -->
+    <!-- nav -->
+    <nav id="nav">
+        <?
+          if(!$userid)
+        {
+        ?>
+            <ul>
+              <li><a href="../index.php"><!--홈--><span class="icon fa-home"></span></a></li>
+              <li><a href="../login/login_form.php"><!--로그인--><span class="icon fa-home"></span></a></li>
+              <li><a href="../member/member_form.php" class="active"><!--회원가입--><span class="icon fa-home"></span></a></li>
+              <li><a href="../memo/memo.php"><span class="icon fa-home"></span></a></li>
+              <li><a href="../greet/list.php"><span class="icon fa-home"></span></a></li>
+              <li><a href="../concert/list.php"><span class="icon fa-home"></span></a></li>
+              <li><a href="../download/list.php"><span class="icon fa-home"></span></a></li>
+              <li><a href="../free/list.php"><span class="icon fa-home"></span></a></li>
+              <li><a href="../qna/list.php"><span class="icon fa-home"></span></a></li>
 
-  <div id="content">
-	<div id="col1">
-		<div id="left_menu">
-<?
-			include "../lib/left_menu.php";
-?>
-		</div>
-	</div> <!-- end of col1 -->
+        <?
+        }
+        else
+				{
+				?>
+				<ul>
+				<li><a href="../index.php"><!--홈--><span class="icon fa-home"></span></a></li>
+				<li><a href="../login/logout.php"><!--로그아웃--><span class="icon fa-home"></span></a></li>
+				<li><a href="../login/member_form_modify.php" class="active"><!--정보수정--><span class="icon fa-home"></span></a></li>
+				<li><a href="../memo/memo.php"><span class="icon fa-home"></span></a></li>
+				<li><a href="../greet/list.php"><span class="icon fa-home"></span></a></li>
+				<li><a href="../concert/list.php"><span class="icon fa-home"></span></a></li>
+				<li><a href="../download/list.php"><span class="icon fa-home"></span></a></li>
+				<li><a href="../free/list.php"><span class="icon fa-home"></span></a></li>
+				<li><a href="../qna/list.php"><span class="icon fa-home"></span></a></li>
+				<?
+				}
+				?>
+      </ul>
+    </nav>
 
-	<div id="col2">
-        <form  name="member_form" method="post" action="modify.php">
-		<div id="title">
-			<img src="../img/title_member_modify.gif">
-		</div>
+    <!-- Main -->
+      <section id="main">
+
+        <!-- Banner -->
+          <section id="banner">
+            <div class="inner">
+            <div class="column" style="display: block; width: 900px; margin:0 auto; position:relative;">
+              <form name="member_form" method="post" action="insert.php">
+                <div class="field half first">
+                  <h3>회원정보수정</h3>
+                  <div class="form_join" style="color: #111111">
 
 
-		<div id="form_join">
-			<div id="join1">
-			<ul>
-			<li>* 아이디</li>
-			<li>* 비밀번호</li>
-			<li>* 비밀번호 확인</li>
-			<li>* 이름</li>
-			<li>* 닉네임</li>
-			<li>* 휴대폰</li>
-			<li>&nbsp;&nbsp;&nbsp;이메일</li>
-			</ul>
-			</div>
-			<div id="join2">
-			<ul>
-			<li><?= $row[id] ?></li>
-			<li><input type="password" name="pass" value="<?= $row[pass] ?>"></li>
-			<li><input type="password" name="pass_confirm" value="<?= $row[pass] ?>"></li>
-			<li><input type="text" name="name" value="<?= $row[name] ?>"></li>
-			<li><div id="nick1"><input type="text" name="nick" value="<?= $row[nick] ?>"></div><div id="nick2" ><a href="#"><img src="../img/check_id.gif" onclick="check_nick()"></a></div></li>
-			<li><input type="text" class="hp" name="hp1" value="<?= $hp1 ?>">
-             - <input type="text" class="hp" name="hp2" value="<?= $hp2 ?>" maxlength="4"> - <input type="text" class="hp" name="hp3" value="<?= $hp3 ?>" maxlength="4"></li>
-			<li><input type="text" id="email1" name="email1" value="<?= $email1 ?>"> @ <input type="text" name="email2"
-			           value="<?= $email2 ?>"></li>
-			</ul>
-			</div>
-			<div class="clear"></div>
-			<div id="must"> * 는 필수 입력항목입니다.^^</div>
-		</div>
-
-		<div id="button"><a href="#"><img src="../img/button_save.gif"  onclick="check_input()"></a>&nbsp;&nbsp;
-		                 <a href="#"><img src="../img/button_reset.gif" onclick="reset_form()"></a>
-		</div>
-	    </form>
-	</div>
+                  <div id="id1" style="float: left; width:80%;">
+                    <input type="text" name="id" placeholder="ID를 입력해주세요" style="width: 240pt">
+                  </div>
+                  <div id="id2" style="float: left; width:20%;">
+                    <a href="#">
+                      <img src="../img/check_id.gif" onclick="check_id()">
+                    </a>
+                    <br><br>
+                  </div>
+                  <div>
+                    <input type="password" name="pass" placeholder="비밀번호를 입력해주세요">
+                  </div>
+                  <br>
+                  <input type="password" name="pass_confirm" placeholder="비밀번호를 다시 입력해주세요">
+                  <br>
+                  <input type="text" name="name"  placeholder="이름을 입력해주세요">
+                  <br>
+                  <input type="text" name="nick"  placeholder="닉네임을 입력해주세요">
+                  <br>
+                  <select class="hp" name="hp1" style="float: left; width:30%; color: #111111">
+                    <option value='010' style="color: #111111;">010</option>
+                    <option value='011' style="color: #111111;">011</option>
+                    <option value='016' style="color: #111111;">016</option>
+                    <option value='017' style="color: #111111;">017</option>
+                    <option value='018' style="color: #111111;">018</option>
+                    <option value='019' style="color: #111111;">019</option>
+                  </select>
+                  <div style="float: left; width:5%; color: #ffffff"><h2> - </h2></div>
+                  <input type="text" maxlength="4" class="hp" name="hp2" placeholder="1234" style="float: left; width:30%; color: #111111;">
+                  <div style="float: left; width:5%; color: #ffffff"><h2> - </h2></div>
+                  <input type="text" maxlength="4" class="hp" name="hp3" placeholder="1234" style="float: left; width:30%; color: #111111">
+                  <input type="text" id="email1" name="email1" placeholder="kadamon2007@gmail.com">
+                  </div>
+                </div>
+                <div id="button">
+                  <a href="#"><img src="../img/button_save.gif"  onclick="check_input()"></a>&nbsp;&nbsp;
+                  <a href="#"><img src="../img/button_reset.gif" onclick="reset_form()"></a>
+                </div>
+                  </form>
+            </div>
+          </section>
+        <!-- Footer -->
+          <footer id="footer">
+            <div class="copyright">
+              &copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
+            </div>
+          </footer>
+      </section>
   </div>
-</div>
 
-</body>
-</html>
+  <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+
+
+  </body>
+  </html>

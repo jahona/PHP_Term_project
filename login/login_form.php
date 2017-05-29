@@ -18,14 +18,14 @@
         ?>
             <ul>
               <li><a href="../index.php"><!--홈--><span class="icon fa-home"></span></a></li>
-              <li><a href="./login/login_form.php" class="active"><!--로그인--><span class="icon fa-home"></span></a></li>
-              <li><a href="./member/member_form.php"><!--회원가입--><span class="icon fa-home"></span></a></li>
-              <li><a href="./memo/memo.php"><span class="icon fa-home"></span></a></li>
-              <li><a href="./greet/list.php"><span class="icon fa-home"></span></a></li>
-              <li><a href="./concert/list.php"><span class="icon fa-home"></span></a></li>
-              <li><a href="./download/list.php"><span class="icon fa-home"></span></a></li>
-              <li><a href="./free/list.php"><span class="icon fa-home"></span></a></li>
-              <li><a href="./qna/list.php"><span class="icon fa-home"></span></a></li>
+              <li><a href="../login/login_form.php" class="active"><!--로그인--><span class="icon fa-home"></span></a></li>
+              <li><a href="../member/member_form.php"><!--회원가입--><span class="icon fa-home"></span></a></li>
+              <li><a href="../memo/memo.php"><span class="icon fa-home"></span></a></li>
+              <li><a href="../greet/list.php"><span class="icon fa-home"></span></a></li>
+              <li><a href="../concert/list.php"><span class="icon fa-home"></span></a></li>
+              <li><a href="../download/list.php"><span class="icon fa-home"></span></a></li>
+              <li><a href="../free/list.php"><span class="icon fa-home"></span></a></li>
+              <li><a href="../qna/list.php"><span class="icon fa-home"></span></a></li>
 
         <?
         }
@@ -54,7 +54,7 @@
         			 <div id="login2">
         				<div id="id_input_button">
         					<div id="id_pw_title">
-        						<ul>
+
         						<ul>ID
                       <div id="id_pw_input">
                         <input type="text" name="id" class="login_input" style="color: black">

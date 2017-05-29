@@ -33,8 +33,16 @@
 				else
 				{
 				?>
-				<?=$usernick?> (level:<?=$userlevel?>) |
-				<a href="./login/logout.php">로그아웃</a> | <a href="./login/member_form_modify.php">정보수정</a>
+				<ul>
+				<li><a href="../index.php" class="active"><!--홈--><span class="icon fa-home"></span></a></li>
+				<li><a href="./login/logout.php"><!--로그아웃--><span class="icon fa-home"></span></a></li>
+				<li><a href="./login/member_form_modify.php"><!--정보수정--><span class="icon fa-home"></span></a></li>
+				<li><a href="./memo/memo.php"><span class="icon fa-home"></span></a></li>
+				<li><a href="./greet/list.php"><span class="icon fa-home"></span></a></li>
+				<li><a href="./concert/list.php"><span class="icon fa-home"></span></a></li>
+				<li><a href="./download/list.php"><span class="icon fa-home"></span></a></li>
+				<li><a href="./free/list.php"><span class="icon fa-home"></span></a></li>
+				<li><a href="./qna/list.php"><span class="icon fa-home"></span></a></li>
 				<?
 				}
 				?>
@@ -48,7 +56,20 @@
 					<section id="banner">
 						<div class="inner">
 							<h1>중고나라</h1>
-							<p>중고나라 페이지 한줄 설명 <a href="https://templated.co">TEMPLATED</a></p>
+							<?
+							if(!$userid)
+								{
+									?>
+							<p>중고나라 페이지 한줄 설명</p>
+							<?
+							}
+							else
+							{
+							?>
+								<p><?=$usernick?>(Lev<?=$userlevel?>) 님 중고나라에 오신 것을 환영합니다.</p>
+							<?
+							}
+							?>
 							<ul class="actions">
 								<li><a href="#galleries" class="button alt scrolly big">바로보기</a></li>
 							</ul>
@@ -94,10 +115,10 @@
 								</footer>
 							</div>
 					</section>
+				<!--
 
-				<!-- Contact -->
 					<section id="contact">
-						<!-- Social -->
+
 							<div class="social column">
 								<h3>About Me</h3>
 								<p>Mus sed interdum nunc dictum rutrum scelerisque erat a parturient condimentum potenti dapibus vestibulum condimentum per tristique porta. Torquent a ut consectetur a vel ullamcorper a commodo a mattis ipsum class quam sed eros vestibulum quisque a eu nulla scelerisque a elementum vestibulum.</p>
@@ -110,7 +131,7 @@
 								</ul>
 							</div>
 
-						<!-- Form -->
+
 							<div class="column">
 								<h3>Get in Touch</h3>
 								<form action="#" method="post">
@@ -133,7 +154,7 @@
 							</div>
 
 					</section>
-
+				-->
 				<!-- Footer -->
 					<footer id="footer">
 						<div class="copyright">
