@@ -109,11 +109,8 @@
 			<nav id="nav">
 					<? include "../lib/top_login1.php"; ?>
 			</nav>
-
-
 		<!-- Main -->
 			<section id="main">
-
 				<!-- Banner -->
 					<section id="banner">
 						<div class="inner">
@@ -122,8 +119,6 @@
 								<div class="field half first">
 									<h3>회원가입</h3>
 									<div class="form_join" style="color: #111111">
-
-
 									<div id="id1" style="float: left; width:80%;">
 										<input type="text" name="id" placeholder="ID를 입력해주세요" style="width: 240pt">
 									</div>
@@ -152,9 +147,9 @@
 		             		<option value='019' style="color: #111111;">019</option>
             			</select>
 									<div style="float: left; width:5%; color: #ffffff"><h2> - </h2></div>
-									<input type="text" maxlength="4" class="hp" name="hp2" placeholder="1234" style="float: left; width:30%; color: #111111;">
+									<input type="text" maxlength="4" class="hp" name="hp2" style="float: left; width:30%; color: #111111;">
 									<div style="float: left; width:5%; color: #ffffff"><h2> - </h2></div>
-									<input type="text" maxlength="4" class="hp" name="hp3" placeholder="1234" style="float: left; width:30%; color: #111111">
+									<input type="text" maxlength="4" class="hp" name="hp3" style="float: left; width:30%; color: #111111">
 									<input type="text" id="email1" name="email1" placeholder="kadamon2007@gmail.com">
 									</div>
 								</div>
@@ -181,9 +176,5 @@
 		<script src="assets/js/skel.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
-
-
-
-
 </body>
 </html>
