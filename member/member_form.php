@@ -157,7 +157,7 @@
 									<a href="#"><img src="../img/button_save.gif"  onclick="check_input()"></a>&nbsp;&nbsp;
 								  <a href="#"><img src="../img/button_reset.gif" onclick="reset_form()"></a>
 								</div>
-							    </form>
+							</form>
 						</div>
 					</section>
 				<!-- Footer -->
