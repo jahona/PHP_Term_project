@@ -24,52 +24,38 @@
 		return $obj;
 	}
 ?>
+<?
+    function getImage() {
+      include "../lib/dbconn.php";
+
+      $sql = "select * from free";
+      $result = mysql_query($sql, $connect);
+
+      $count = 0;
+
+      while($row = mysql_fetch_array($result)) {
+        $obj[$count] = (object)array('id' => $row[id], 'nick' => $row[nick], 'file_copied' => $row[file_copied_0]);
+        $count++;
+      }
+
+      // for($i=0 ; $i<$count ; $i++) {
+      //   echo $obj[$i]->id." ".$obj[$i]->nick." ".$obj[$i]->file_name."<br />";
+      // }
+
+      mysql_close();
+
+			return $obj;
+    }
+?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+
 <link rel="stylesheet" href="../assets/css/main.css" />
-<?
-	include "../lib/dbconn.php";
-	$scale=10;			// 한 화면에 표시되는 글 수
-
-    if ($mode=="search")
-	{
-		if(!$search)
-		{
-			echo("
-				<script>
-				 window.alert('검색할 단어를 입력해 주세요!');
-			     history.go(-1);
-				</script>
-			");
-			exit;
-		}
-		$sql = "select * from $table where $find like '%$search%' order by num desc";
-	}
-	else
-	{
-		$sql = "select * from $table order by num desc";
-	}
-
-	$result = mysql_query($sql, $connect);
-	$total_record = mysql_num_rows($result); // 전체 글 수
-
-	// 전체 페이지 수($total_page) 계산
-	if ($total_record % $scale == 0)
-		$total_page = floor($total_record/$scale);
-	else
-		$total_page = floor($total_record/$scale) + 1;
-
-	if (!$page)                 // 페이지번호($page)가 0 일 때
-		$page = 1;              // 페이지 번호를 1로 초기화
-
-	// 표시할 페이지($page)에 따라 $start 계산
-	$start = ($page - 1) * $scale;
-	$number = $total_record - $start;
-?>
 </head>
+
 <?
 	include "../lib/dbconn.php";
 	$scale=10;			// 한 화면에 표시되는 글 수
@@ -92,6 +78,7 @@
 	{
 		$sql = "select * from $table order by num desc";
 	}
+
 	$result = mysql_query($sql, $connect);
 	$total_record = mysql_num_rows($result); // 전체 글 수
 
@@ -108,13 +95,14 @@
 	$start = ($page - 1) * $scale;
 	$number = $total_record - $start;
 ?>
+
 <body>
 	<div class="page-wrap">
 
 		<!-- nav -->
-			<nav id="nav">
-					<? include "../lib/top_login1.php"; ?>
-			</nav>
+		<nav id="nav">
+				<? include "../lib/top_login1.php"; ?>
+		</nav>
 
 		<!-- Main -->
 			<section id="main">
@@ -143,20 +131,52 @@
 
 									<div class="content">
 										<?
-										$obj = getImage();
-											for($i=0; $i<8; $i++){
-												$str = "<div class='media all people'>"."<a href='클릭시 경로'><img src='./data/".$obj[$i]->file_copied."' alt='' title='This right here is a caption.' /></a>
-												</div>";
+											$obj = getImage();
+													for($i=0; $i<8; $i++){
+															$str = "<div class='media all people'>"."<a href='클릭시 경로'><img src='./data/".$obj[$i]->file_copied."' alt='' title='This right here is a caption.' /></a>
+															</div>";
 
-												echo $str;
-												echo $obj[0]->file_name;
-											}
+															echo $str;
+															echo $obj[0]->file_name;
+													}
 										?>
+
 									</div>
-									<!-- ContentEnd -->
 							</div>
 					</section>
 
+
+
+								<div id="page_button">
+									<div id="page_num"> ◀ 이전 &nbsp;&nbsp;&nbsp;&nbsp;
+					<?
+					   // 게시판 목록 하단에 페이지 링크 번호 출력
+					   for ($i=1; $i<=$total_page; $i++)
+					   {
+							if ($page == $i)     // 현재 페이지 번호 링크 안함
+							{
+								echo "<b> $i </b>";
+							}
+							else
+							{
+								echo "<a href='list.php?table=$table&page=$i'> $i </a>";
+							}
+					   }
+					?>
+								&nbsp;&nbsp;&nbsp;&nbsp;다음 ▶
+									</div>
+									<div id="button">
+										<a href="list.php?table=<?=$table?>&page=<?=$page?>"><img src="../img/list.png"></a>&nbsp;
+					<?
+						if($userid)
+						{
+					?>
+							<a href="write_form.php?table=<?=$table?>"><img src="../img/write.png"></a>
+					<?
+						}
+					?>
+					</div>
+					</div>
 				<!-- Footer -->
 					<footer id="footer">
 						<div class="copyright">
@@ -166,13 +186,15 @@
 			</section>
 	</div>
 
-	<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.poptrox.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/skel.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
+
+<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.poptrox.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
 
 </body>
 </html>
