@@ -2,6 +2,27 @@
 	session_start();
 	$table = "free";
 	$ripple = "free_ripple";
+	function getImage() {
+		include "../lib/dbconn.php";
+
+		$sql = "select * from free";
+		$result = mysql_query($sql, $connect);
+
+		$count = 0;
+
+		while($row = mysql_fetch_array($result)) {
+			$obj[$count] = (object)array('id' => $row[id], 'nick' => $row[nick], 'file_copied' => $row[file_copied_0]);
+			$count++;
+		}
+
+		// for($i=0 ; $i<$count ; $i++) {
+		//   echo $obj[$i]->id." ".$obj[$i]->nick." ".$obj[$i]->file_name."<br />";
+		// }
+
+		mysql_close();
+
+		return $obj;
+	}
 ?>
 <?
     function getImage() {
@@ -31,8 +52,10 @@
 <html>
 <head>
 <meta charset="utf-8">
+
 <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
+
 <?
 	include "../lib/dbconn.php";
 	$scale=10;			// 한 화면에 표시되는 글 수
@@ -72,6 +95,7 @@
 	$start = ($page - 1) * $scale;
 	$number = $total_record - $start;
 ?>
+
 <body>
 	<div class="page-wrap">
 
@@ -170,7 +194,6 @@
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-
 
 
 </body>

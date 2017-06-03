@@ -1,3 +1,6 @@
+<?
+session_start();
+?>
 <meta charset="utf-8">
 <?
    $hp = $hp1."-".$hp2."-".$hp3;
@@ -24,12 +27,18 @@
    else
    {            // 레코드 삽입 명령을 $sql에 입력
 	    $sql = "insert into member(id, pass, name, nick, hp, email, regist_day, level) ";
-		$sql .= "values('$id', '$pass', '$name', '$nick', '$hp', '$email', '$regist_day', 9)";
+		  $sql .= "values('$id', '$pass', '$name', '$nick', '$hp', '$email', '$regist_day', 9)";
 
-		mysql_query($sql, $connect);  // $sql 에 저장된 명령 실행
+   		mysql_query($sql, $connect);  // $sql 에 저장된 명령 실행
    }
 
    mysql_close();                // DB 연결 끊기
+
+   $_SESSION['userid'] = $id;
+   $_SESSION['username'] = $name;
+   $_SESSION['usernick'] = $nick;
+   $_SESSION['userlevel'] = 1;
+
    echo "
 	   <script>
 	    location.href = '../index.php';

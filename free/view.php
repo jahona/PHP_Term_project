@@ -4,12 +4,12 @@
 
 	$sql = "select * from $table where num=$num";
 	$result = mysql_query($sql, $connect);
-    $row = mysql_fetch_array($result);
+  $row = mysql_fetch_array($result);
 
 	$item_num     = $row[num];
 	$item_id      = $row[id];
 	$item_name    = $row[name];
-  	$item_nick    = $row[nick];
+  $item_nick    = $row[nick];
 	$item_hit     = $row[hit];
 
 	$image_name[0]   = $row[file_name_0];
@@ -19,7 +19,7 @@
 	$image_copied[1] = $row[file_copied_1];
 	$image_copied[2] = $row[file_copied_2];
 
-    $item_date    = $row[regist_day];
+  $item_date    = $row[regist_day];
 	$item_subject = str_replace(" ", "&nbsp;", $row[subject]);
 	$item_content = $row[content];
 	$is_html      = $row[is_html];

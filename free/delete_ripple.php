@@ -6,8 +6,8 @@
       mysql_close();
 
       echo "
-	   <script>
+	    <script>
 	    location.href = 'view.php?table=$table&num=$num';
-	   </script>
-	  ";
+	     </script>
+	      ";
 ?>
