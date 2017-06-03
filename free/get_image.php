@@ -8,15 +8,17 @@
       $count = 0;
 
       while($row = mysql_fetch_array($result)) {
-        $obj[$count] = (object)array('id' => $row[id], 'nick' => $row[nick], 'file_name' => $row[file_name_0]);
+        $obj[$count] = (object)array('id' => $row[id], 'nick' => $row[nick], 'file_name' => $row[file_copied_0]);
         $count++;
       }
 
-      // for($i=0 ; $i<$count ; $i++) {
-      //   echo $obj[$i]->id." ".$obj[$i]->nick." ".$obj[$i]->file_name."<br />";
-      // }
+      for($i=0 ; $i<$count ; $i++) {
+        echo $obj[$i]->id." ".$obj[$i]->nick." ".$obj[$i]->file_name."<br />";
+      }
 
       mysql_close();
+
+      return $obj;
     }
 
     getImage();
