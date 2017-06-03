@@ -105,7 +105,7 @@
 										<?
 											$obj = getInfo();
 													for($i=0; $i<8; $i++){
-															$str = "<div class='media all people'>"."<a href='클릭시 경로'><img src='./data/".$obj[$i]->file_copied_0."' alt='' title='This right here is a caption.' /></a>
+															$str = "<div class='media all people'>"."<a href='view.php?table=<?=$table?>&page=<?=$page?>'><img src='./data/".$obj[$i]->file_copied_0."' alt='' title='This right here is a caption.' /></a>
 															</div>";
 															echo $str;
 															echo $obj[0]->file_name;
@@ -133,7 +133,7 @@
 												?>
 															&nbsp;&nbsp;&nbsp;&nbsp;next ▶
 																</div>
-																<div id="button"><br>
+																<div id="button">
 																	<a href="list.php?table=<?=$table?>&page=<?=$page?>"><img src="../img/list.png"></a>&nbsp;
 												<?
 													if($userid)
