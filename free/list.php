@@ -32,8 +32,10 @@
 <html>
 <head>
 <meta charset="utf-8">
+
 <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
+
 <?
 	include "../lib/dbconn.php";
 	$scale=10;			// 한 화면에 표시되는 글 수
@@ -73,6 +75,7 @@
 	$start = ($page - 1) * $scale;
 	$number = $total_record - $start;
 ?>
+
 <body>
 	<div class="page-wrap">
 
@@ -166,7 +169,6 @@
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-
 
 
 </body>

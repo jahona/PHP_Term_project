@@ -128,17 +128,6 @@
                 <div class="field half first">
                   <h3>회원정보수정</h3>
                   <div class="form_join" style="color: #111111">
-
-
-                  <div id="id1" style="float: left; width:80%;">
-                    <input type="text" name="id" placeholder="ID를 입력해주세요" style="width: 240pt">
-                  </div>
-                  <div id="id2" style="float: left; width:20%;">
-                    <a href="#">
-                      <img src="../img/check_id.gif" onclick="check_id()">
-                    </a>
-                    <br><br>
-                  </div>
                   <div>
                     <input type="password" name="pass" placeholder="비밀번호를 입력해주세요">
                   </div>
@@ -168,7 +157,7 @@
                   <a href="#"><img src="../img/button_save.gif"  onclick="check_input()"></a>&nbsp;&nbsp;
                   <a href="#"><img src="../img/button_reset.gif" onclick="reset_form()"></a>
                 </div>
-                  </form>
+              </form>
             </div>
           </section>
         <!-- Footer -->
@@ -177,7 +166,7 @@
               &copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
             </div>
           </footer>
-      </section>
+        </section>
   </div>
 
   <!-- Scripts -->
@@ -187,9 +176,5 @@
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-
-
-
-
   </body>
   </html>
