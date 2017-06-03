@@ -2,27 +2,6 @@
 	session_start();
 	$table = "free";
 	$ripple = "free_ripple";
-	function getImage() {
-		include "../lib/dbconn.php";
-
-		$sql = "select * from free";
-		$result = mysql_query($sql, $connect);
-
-		$count = 0;
-
-		while($row = mysql_fetch_array($result)) {
-			$obj[$count] = (object)array('id' => $row[id], 'nick' => $row[nick], 'file_copied' => $row[file_copied_0]);
-			$count++;
-		}
-
-		// for($i=0 ; $i<$count ; $i++) {
-		//   echo $obj[$i]->id." ".$obj[$i]->nick." ".$obj[$i]->file_name."<br />";
-		// }
-
-		mysql_close();
-
-		return $obj;
-	}
 ?>
 <?
     function getImage() {
