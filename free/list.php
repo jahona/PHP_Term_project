@@ -4,7 +4,7 @@
 	$ripple = "free_ripple";
 ?>
 <?
-    function getImage() {
+    function getInfo() {
       include "../lib/dbconn.php";
 
       $sql = "select * from free";
@@ -13,17 +13,18 @@
       $count = 0;
 
       while($row = mysql_fetch_array($result)) {
-        $obj[$count] = (object)array('id' => $row[id], 'nick' => $row[nick], 'file_copied' => $row[file_copied_0]);
+        $obj[$count] = (object)array('id' => $row[id], 'name' => $row[name], 'nick' => $row[nick],
+        'subject' => $row[subject], 'content' => $row[content], 'regist_day' => $row[regist_day],
+        'hit' => $row[hit], 'is_html' => $row[is_html], 'file_name_0' => $row[file_name_0],
+        'file_name_1' => $row[file_name_1], 'file_name_2' => $row[file_name_2], 'file_name_3' => $row[file_name_3], 'file_name_4' => $row[file_name_4],
+        'file_copied_0' => $row[file_copied_0], 'file_copied_1' => $row[file_copied_1], 'file_copied_2' => $row[file_copied_2],
+        'file_copied_3' => $row[file_copied_3], 'file_copied_4' => $row[file_copied_4]);
         $count++;
       }
 
-      // for($i=0 ; $i<$count ; $i++) {
-      //   echo $obj[$i]->id." ".$obj[$i]->nick." ".$obj[$i]->file_name."<br />";
-      // }
-
       mysql_close();
 
-			return $obj;
+      return $obj;
     }
 ?>
 
@@ -96,63 +97,58 @@
 
 								<!-- Filters -->
 									<header>
-										<h1>Gallery</h1>
-										<ul class="tabs">
-											<li><a href="#" data-tag="all" class="button active">All</a></li>
-											<li><a href="#" data-tag="people" class="button">People</a></li>
-											<li><a href="#" data-tag="place" class="button">Places</a></li>
-											<li><a href="#" data-tag="thing" class="button">Things</a></li>
-										</ul>
+										<h1>물품들</h1>
+
 									</header>
 
 									<div class="content">
 										<?
-											$obj = getImage();
+											$obj = getInfo();
 													for($i=0; $i<8; $i++){
-															$str = "<div class='media all people'>"."<a href='클릭시 경로'><img src='./data/".$obj[$i]->file_copied."' alt='' title='This right here is a caption.' /></a>
+															$str = "<div class='media all people'>"."<a href='클릭시 경로'><img src='./data/".$obj[$i]->file_copied_0."' alt='' title='This right here is a caption.' /></a>
 															</div>";
-
 															echo $str;
 															echo $obj[0]->file_name;
 													}
 										?>
-
 									</div>
 							</div>
+							<!-- page button -->
+
+										<div style="text-align: center;" >
+											<div id="page_num"> ◀ prev &nbsp;&nbsp;&nbsp;&nbsp;
+												<?
+												   // 게시판 목록 하단에 페이지 링크 번호 출력
+												   for ($i=1; $i<=$total_page; $i++)
+												   {
+														if ($page == $i)     // 현재 페이지 번호 링크 안함
+														{
+															echo "<b> $i </b>";
+														}
+														else
+														{
+															echo "<a href='list.php?table=$table&page=$i'> $i </a>";
+														}
+												   }
+												?>
+															&nbsp;&nbsp;&nbsp;&nbsp;next ▶
+																</div>
+																<div id="button"><br>
+																	<a href="list.php?table=<?=$table?>&page=<?=$page?>"><img src="../img/list.png"></a>&nbsp;
+												<?
+													if($userid)
+													{
+												?>
+														<a href="write_form.php?table=<?=$table?>"><img src="../img/write.png"></a>
+												<?
+													}
+												?>
+											</div>
+										</div>
+										<!-- end  page button -->
 					</section>
 
 
-
-								<div id="page_button">
-									<div id="page_num"> ◀ 이전 &nbsp;&nbsp;&nbsp;&nbsp;
-					<?
-					   // 게시판 목록 하단에 페이지 링크 번호 출력
-					   for ($i=1; $i<=$total_page; $i++)
-					   {
-							if ($page == $i)     // 현재 페이지 번호 링크 안함
-							{
-								echo "<b> $i </b>";
-							}
-							else
-							{
-								echo "<a href='list.php?table=$table&page=$i'> $i </a>";
-							}
-					   }
-					?>
-								&nbsp;&nbsp;&nbsp;&nbsp;다음 ▶
-									</div>
-									<div id="button">
-										<a href="list.php?table=<?=$table?>&page=<?=$page?>"><img src="../img/list.png"></a>&nbsp;
-					<?
-						if($userid)
-						{
-					?>
-							<a href="write_form.php?table=<?=$table?>"><img src="../img/write.png"></a>
-					<?
-						}
-					?>
-					</div>
-					</div>
 				<!-- Footer -->
 					<footer id="footer">
 						<div class="copyright">
